@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.help-section {
+    margin-top: 120px;
+    background-color: var(--cor-de-fundo);
+    font-family: 'Roboto', serif;
+    padding: 50px;
+}
+
+/* ----------------------------- Dúvidas ----------------------------- */
+
+.help-section {
+    text-align: center;
+}
+
+.help-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    padding: 10px;
+    font-size: 1em;
+    width: 70%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: black;
+}
+
+.search-box button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #6c5ce7;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #81ecec;
+}
+
+.faq-item {
+    background-color: var(--cor-secundaria);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}

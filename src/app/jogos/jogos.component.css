@@ -1,0 +1,22 @@
+.card {
+  height: 40%;
+  width: 40%;
+  background-color: #021859;
+}
+
+.games_principal {
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+  margin-bottom: 300px;
+}
+
+.card-title,
+.card-text {
+  color: aliceblue;
+}
+
+.games {
+  min-height: 100vh;
+  background-color: #010626;
+}

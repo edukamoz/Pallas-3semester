@@ -1,0 +1,42 @@
+.desafios {
+  background-color: #010626;
+  margin-top: 120px;
+  padding: 50px;
+}
+
+.level-section {
+  margin-bottom: 40px;
+  font-family: 'graduate', serif;
+}
+
+.challenge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.challenge.inic {
+  background-color: #4CAF50;
+}
+
+.challenge.intermed {
+  background-color: #B8860B;
+}
+
+.challenge.avan {
+  background-color: #8B0000;
+}
+
+.codar-btn {
+  background-color: #7C05F2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 0px 20px;
+  bottom: -35px;
+}

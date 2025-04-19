@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.alinhar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #010626;
+    min-height: 100vh;
+}
+
+.Principal {
+    background-color: #021859;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    margin-top: 150px;
+    width: 90%;
+    border-radius: 8px;
+}
+
+.titulo {
+    font-family: 'Graduate';
+    font-size: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.cadastro {
+    height: auto;
+    font-size: 30px;
+    width: 60%;
+    margin-top: 20px;
+    font-family: 'Graduate';
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#User {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#img_user {
+    height: auto;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Carregar {
+    border-radius: 7px;
+    padding: 3px 10px;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.titulo>p {
+    text-shadow: 4px 3px black;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: large;
+    width: 140%;
+    align-items: center;
+}
+
+label~input {
+    width: 100%;
+    height: 3rem;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 2px 3px black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    text-indent: 10px;
+    font-size: 1.5rem;
+}
+
+.error-message {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    text-align: left;
+}
+
+#formCad {
+    width: 100%;
+    height: 70%;
+    margin-left: 20%;
+}
+
+.cadastroButons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.buton {
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 5px 6px black;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+}
+
+.buton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+a {
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+}

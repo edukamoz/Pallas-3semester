@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --cor-de-fundo: #010626;
+    --cor-primaria: ##7C05F2;
+    --cor-secundaria: #021859;
+    --cor-erro: #ff4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}

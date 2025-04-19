@@ -1,0 +1,31 @@
+<div class="esqueci-senha">
+
+    <div class="Principal centralizar">
+        <div id="textoLogin" class="titulo">
+            <p>RECUPERAR A MINHA SENHA</p>
+        </div>
+        <br>
+        <div id="FormRecuperacao">
+            <label>E-mail ou ID:</label>
+            <input id="email" type="text">
+
+        </div>
+
+        <div class="recuperar_botao">
+            <button id="botaoRecover" class="buton" onclick="startTimer()">Redefinir Senha</button>
+        </div>
+        <div>
+            <a routerLink="/login" id="voltar_login">Voltar à página de Login</a>
+        </div>
+        <div id="timer">
+
+            <p>Feito!
+                <br>
+                Seu código de recuperação foi enviado para:
+            </p>
+            <p id="emailRecuperacao">(email)</p>
+            Para sua segurança, o código irá expirar em: <span id="countdown">5:00</span>
+        </div>
+    </div>
+
+</div>

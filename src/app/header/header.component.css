@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+header {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+}
+.navbar {
+  background-color: #010626;
+  padding: 10px 0;
+  width: 100vw;
+  height: 120px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+}
+.navbar-brand {
+  font-family: "Graduate", Courier, monospace;
+  font-size: 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img {
+  height: 60px;
+  margin-right: 10px;
+}
+.nav-link {
+  font-family: "Graduate", Courier, monospace;
+  font-size: 18px;
+  color: white;
+  margin: 0 15px;
+}
+.nav-link:hover {
+  color: #ccc;
+}
+.navbar-nav {
+  flex-direction: row;
+}
+.navbar .fa-user-circle {
+  font-size: 24px;
+  margin-left: 5px;
+}
+.icon {
+  fill: white;
+  border-radius: 100%;
+  border: white 3px solid;
+}
+li {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .navbar-nav {
+      flex-direction: column;
+      align-items: flex-end;
+  }
+}

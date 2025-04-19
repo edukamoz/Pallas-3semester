@@ -1,0 +1,42 @@
+<main class="alinhar">
+    <div class="Principal">
+        <div class="titulo">
+            <p>CADASTRO ATHENA.DEV</p>
+        </div>
+        <div class="cadastro">
+            <div id="img_user">
+                <img src="Perfil.png" alt="Icone_Usuário" id="User">
+                <input type="file" id="Carregar">
+            </div>
+
+            <div id="formCad">
+                <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+                    <label for="email">E-mail:</label>
+                    <input id="email" type="email" formControlName="email">
+                    <div class="error-message" *ngIf="cadastroForm.get('email')?.touched">
+                        {{ getErrorMessage('email') }}
+                    </div>
+
+                    <label for="password">Senha:</label>
+                    <input id="password" type="password" formControlName="password">
+                    <div class="error-message" *ngIf="cadastroForm.get('password')?.touched">
+                        {{ getErrorMessage('password') }}
+                    </div>
+
+                    <label for="confirmPassword">Confirme sua senha:</label>
+                    <input id="confirmPassword" type="password" formControlName="confirmPassword">
+                    <div class="error-message" *ngIf="cadastroForm.get('confirmPassword')?.touched">
+                        {{ getErrorMessage('confirmPassword') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="cadastroButons">
+            <button class="buton" routerLink="/login">Já sou cadastrado</button>
+            <button class="buton" (click)="onSubmit()" [disabled]="cadastroForm.invalid">
+                Finalizar Cadastro
+            </button>
+        </div>
+    </div>
+</main>

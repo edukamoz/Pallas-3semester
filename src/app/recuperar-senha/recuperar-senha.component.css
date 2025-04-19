@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* ----------------------------- Esqueceu Senha ----------------------------- */
+
+.esqueci-senha {
+    background-color: var(--cor-de-fundo);
+    margin-top: 120px;
+    height: 70vh;
+}
+
+.Principal {
+    text-align: center;
+}
+
+#textoLogin {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#formLog {
+    width: 50%;
+    height: 70%;
+}
+
+#esqueceuSenha {
+    color: #BE7DFF;
+}
+
+.centralizar {
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#timer {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mensagem {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+
+}
+
+#voltar_login {
+    color: #BE7DFF;
+    justify-self: center;
+}
+
+#textoRecovery {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.recuperar_botao {
+    display: flex;
+    justify-self: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.buton {
+    padding: 5px;
+    color: black;
+    font-family: "Roboto" serif;
+    justify-self: center;
+}

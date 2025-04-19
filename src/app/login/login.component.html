@@ -1,0 +1,43 @@
+<div class="Login">
+  <main class="login">
+    <div class="Principal centralizar">
+      <div id="textoLogin" class="login">
+        <p id="legenda">LOGIN ATHENA.DEV</p>
+      </div>
+
+      <div id="formLog">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <label>E-mail:</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <div class="error-message" *ngIf="loginForm.get('email')?.touched">
+            {{ getErrorMessage('email') }}
+          </div>
+
+          <label>Senha:</label>
+          <input
+            id="senha"
+            type="password"
+            formControlName="password"
+            [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <div class="error-message" *ngIf="loginForm.get('password')?.touched">
+            {{ getErrorMessage('password') }}
+          </div>
+        </form>
+      </div>
+
+      <div class="LoginButons">
+        <button class="buton" (click)="onSubmit()" [disabled]="loginForm.invalid">LOGIN</button>
+      </div>
+
+      <button class="buton"><a routerLink="/cadastrar">CADASTRAR</a></button>
+
+      <div>
+        <a id="esqueceuSenha" routerLink="/recuperar-senha">Esqueci minha senha</a>
+      </div>
+    </div>
+  </main>
+</div>
