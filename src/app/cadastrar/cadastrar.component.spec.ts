@@ -21,3 +21,4 @@ describe('CadastrarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

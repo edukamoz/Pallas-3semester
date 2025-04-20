@@ -62,3 +62,4 @@ export class CadastrarComponent implements OnInit {
     return '';
   }
 }
+
