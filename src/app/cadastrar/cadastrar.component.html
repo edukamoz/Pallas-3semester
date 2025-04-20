@@ -1,13 +1,16 @@
 <main class="alinhar">
     <div class="Principal">
         <div class="titulo">
-            <p>CADASTRO ATHENA.DEV</p>
+            <p>CADASTRO</p>
         </div>
         <div class="cadastro">
             <div id="img_user">
                 <img src="Perfil.png" alt="Icone_Usuário" id="User">
-                <input type="file" id="Carregar">
-            </div>
+              
+                <label for="Carregar" class="upload-label">Selecionar imagem</label>
+                <input type="file" id="Carregar" class="upload-input">
+              </div>
+              
 
             <div id="formCad">
                 <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">

@@ -10,7 +10,7 @@ describe('CadastrarComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CadastrarComponent]
     })
-    .compileComponents();
+    .compileComponents(); 
 
     fixture = TestBed.createComponent(CadastrarComponent);
     component = fixture.componentInstance;

@@ -1,138 +1,267 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --font-large: 1.5rem;
+  --font-medium: 1.2rem;
+  --spacing: 1.5rem;
+}
+
 .alinhar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #010626;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #010626;
+  min-height: 100vh; /* Garante que a área azul ocupe toda a tela */
+  padding: 2vh 2vw;
 }
 
 .Principal {
-    background-color: #021859;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    margin-top: 150px;
-    width: 90%;
-    border-radius: 8px;
+  background-color: #021859;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 2rem; /* Aumenta o padding interno */
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-height: 100vh; /* Aumentei o min-height para 100vh para ocupar a tela inteira */
+  display: flex; /* Garante que ela cresça ao longo da tela */
+  flex-direction: column;
+  justify-content: flex-start; /* Ajusta o conteúdo para começar no topo */
 }
 
 .titulo {
-    font-family: 'Graduate';
-    font-size: 50px;
-    margin-top: 50px;
-    text-align: center;
+  font-family: 'Graduate', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+  text-shadow: 4px 3px black;
 }
 
 .cadastro {
-    height: auto;
-    font-size: 30px;
-    width: 60%;
-    margin-top: 20px;
-    font-family: 'Graduate';
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-#User {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 #img_user {
-    height: auto;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-#Carregar {
-    border-radius: 7px;
-    padding: 3px 10px;
-    color: black;
-    border: none;
-    cursor: pointer;
+#User {
+  width: 100%;
+  height: auto;
 }
 
-.titulo>p {
-    text-shadow: 4px 3px black;
+/* Input de upload escondido */
+.upload-input {
+  display: none;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: large;
-    width: 140%;
-    align-items: center;
+/* Label estilizado como botão de upload */
+.upload-label {
+  background-color: white;
+  color: black;
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 2px 3px black;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out;
+  font-family: 'Graduate', sans-serif;
+  width: 100%;
+  max-width: 250px;
 }
 
-label~input {
-    width: 100%;
-    height: 3rem;
-    border-radius: 4px;
-    border: none;
-    box-shadow: 2px 3px black;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    color: black;
-    text-indent: 10px;
-    font-size: 1.5rem;
-}
-
-.error-message {
-    color: #cccccc;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
-    text-align: left;
+.upload-label:hover {
+  background-color: #e6e6e6;
 }
 
 #formCad {
-    width: 100%;
-    height: 70%;
-    margin-left: 20%;
+  width: 100%;
+  max-width: 400px;
+  margin-left: 4rem; /* Aumenta o espaço entre imagem e formulário */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: 'Graduate', sans-serif;
+  width: 100%;
+}
+
+label {
+  margin-top: 0.8em;
+  margin-bottom: 1px;
+  font-size: 1rem;
+}
+
+label ~ input {
+  width: 100%;
+  max-width: 150em;
+  min-height: 3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 2px 3px black;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  color: black;
+  text-indent: 5px;
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Ajustes responsivos para telas menores */
+@media (max-width: 768px) {
+  label ~ input {
+    min-height: 2.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Para telas maiores */
+@media (min-width: 1440px) {
+  label ~ input {
+    min-height: 3.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Estilo para o erro (texto) */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  text-align: left;
+}
+
+/* Borda vermelha nos inputs com erro */
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Estilo para inputs válidos (opcional) */
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
 }
 
 .cadastroButons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .buton {
-    width: 250px;
-    height: 50px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 5px 6px black;
-    margin-bottom: 10px;
-    color: black;
-    font-size: 23px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: white;
+  width: 100%;
+  max-width: 250px;
+  height: 3rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 6px black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 .buton:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.7;
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 a {
-    font-style: normal;
-    color: black;
-    text-decoration: none;
+  font-style: normal;
+  color: black;
+  text-decoration: none;
+}
+
+/* Responsivo para telas até 1024px */
+@media (max-width: 1024px) {
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .cadastro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #formCad {
+    width: 100%;
+  }
+
+  .buton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  label ~ input {
+    font-size: 1rem;
+    height: 2.3rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .cadastro {
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    width: 90%;
+  }
+
+  #img_user {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
+
+  #formCad {
+    margin-left: 0;
+    max-width: 90%;
+  }
+
+  .cadastroButons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buton {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  label ~ input {
+    font-size: 0.9rem;
+    height: 2.6rem;
+  }
 }
