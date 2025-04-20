@@ -13,16 +13,30 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class CadastrarComponent implements OnInit {
   cadastroForm: FormGroup;
+  selectedFileName: string | null = null;
 
   constructor(private fb: FormBuilder) {
     this.cadastroForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    }, );
+    },);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const fileType = file.type;
+      if (fileType === 'image/png' || fileType === 'image/jpeg') {
+        this.selectedFileName = file.name;
+      } else {
+        this.selectedFileName = null;
+      }
+    }
+  }
 
   onSubmit(): void {
     if (this.cadastroForm.valid) {
@@ -55,8 +69,8 @@ export class CadastrarComponent implements OnInit {
       }
     }
     if (this.cadastroForm.errors?.['passwordMismatch'] &&
-        controlName === 'confirmPassword' &&
-        !control?.errors?.['required']) {
+      controlName === 'confirmPassword' &&
+      !control?.errors?.['required']) {
       return 'As senhas não coincidem';
     }
     return '';

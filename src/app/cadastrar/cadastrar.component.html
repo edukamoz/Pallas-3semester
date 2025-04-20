@@ -6,11 +6,13 @@
         <div class="cadastro">
             <div id="img_user">
                 <img src="Perfil.png" alt="Icone_Usuário" id="User">
-              
+
                 <label for="Carregar" class="upload-label">Selecionar imagem</label>
-                <input type="file" id="Carregar" class="upload-input">
-              </div>
-              
+                <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)">
+                <div *ngIf="selectedFileName" class="selected-file-name">
+                    Arquivo selecionado: {{ selectedFileName }}
+                </div>
+            </div>
 
             <div id="formCad">
                 <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
