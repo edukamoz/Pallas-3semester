@@ -2,7 +2,7 @@
   <main class="login">
     <div class="Principal centralizar">
       <div id="textoLogin" class="login">
-        <p id="legenda">LOGIN ATHENA.DEV</p>
+        <p id="legenda">LOGIN</p>
       </div>
 
       <div id="formLog">
@@ -32,8 +32,11 @@
       <div class="LoginButons">
         <button class="buton" (click)="onSubmit()" [disabled]="loginForm.invalid">LOGIN</button>
       </div>
-
-      <button class="buton"><a routerLink="/cadastrar">CADASTRAR</a></button>
+      
+      <div class="LoginButons">
+        <button class="buton"><a routerLink="/cadastrar">CADASTRAR</a></button>
+      </div>
+      
 
       <div>
         <a id="esqueceuSenha" routerLink="/recuperar-senha">Esqueci minha senha</a>
