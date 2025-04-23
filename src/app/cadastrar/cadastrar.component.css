@@ -29,7 +29,8 @@
   min-height: 100vh; /* Aumentei o min-height para 100vh para ocupar a tela inteira */
   display: flex; /* Garante que ela cresça ao longo da tela */
   flex-direction: column;
-  justify-content: flex-start; /* Ajusta o conteúdo para começar no topo */
+  margin-top: 10rem;
+  margin-bottom: 6rem;
 }
 
 .titulo {
