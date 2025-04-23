@@ -16,6 +16,12 @@
 
             <div id="formCad">
                 <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+                    <label for="username">Nome do Usuário:</label>
+                    <input id="username" type="text" formControlName="username">
+                    <div class="error-message" *ngIf="cadastroForm.get('username')?.touched">
+                        {{ getErrorMessage('username') }}
+                    </div>
+
                     <label for="email">E-mail:</label>
                     <input id="email" type="email" formControlName="email">
                     <div class="error-message" *ngIf="cadastroForm.get('email')?.touched">
