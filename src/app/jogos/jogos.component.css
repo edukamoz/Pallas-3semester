@@ -7,8 +7,7 @@
 .games_principal {
   display: flex;
   justify-content: space-around;
-  margin: 5%;
-  margin-bottom: 300px;
+  margin-top: 5rem;
 }
 
 .card-title,
@@ -17,6 +16,8 @@
 }
 
 .games {
-  min-height: 100vh;
+
+  min-height: 130vh;
   background-color: #010626;
+
 }

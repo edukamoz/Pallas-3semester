@@ -1,0 +1,51 @@
+<main class="erros">
+  <h5>Corrija os blocos de código abaixo:</h5>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Carregando códigos...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div *ngFor="let block of codeBlocks; let i = index" class="code-block-container">
+      <h6>Bloco {{ i + 1 }}</h6>
+      <pre
+        class="code-block"
+        contenteditable="true"
+        (input)="onCodeChange(i, $event)"
+      >{{ block.join('\n') }}</pre>
+    </div>
+
+    <div class="button-container">
+      <button (click)="checkAnswers()" [disabled]="isLoading || codeBlocks.length === 0">
+        Verificar Respostas
+      </button>
+      <button *ngIf="feedback" (click)="resetGame()" class="reset-button">
+        Novo Jogo
+      </button>
+    </div>
+
+    <div *ngIf="feedback" class="feedback-container">
+      <h5>Resultado:</h5>
+      <p class="score"><strong>Pontuação:</strong> {{ feedback.score }}</p>
+      
+      <div *ngFor="let bloco of feedback.feedback; let bi = index" class="feedback-block">
+        <h6>Bloco {{ bi + 1 }}</h6>
+        <ul>
+          <li *ngFor="let linha of bloco" class="feedback-line">
+            <span *ngIf="linha.status === 'acertou'" class="correct">
+              ✓ {{ linha.line }}
+            </span>
+            <span *ngIf="linha.status === 'errou'" class="incorrect">
+              ✗ {{ linha.line }} 
+              <span class="correct-answer">(correto: {{ linha.certo }})</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

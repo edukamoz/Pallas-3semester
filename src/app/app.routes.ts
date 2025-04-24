@@ -8,6 +8,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { DuvidasComponent } from './duvidas/duvidas.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
+import { SeteErrosComponent } from './sete-erros/sete-erros.component';
 
 export const routes: Routes = [
   { path: '', component: HomeMainComponent },
@@ -23,4 +24,5 @@ export const routes: Routes = [
   //{ path: 'canal-suporte', component: CanalSuporteComponent},
   //{ path: 'depoimentos', component: DepoimentosComponent},
   { path: 'ranking', component: RankingComponent },
+  {path: 'sete-erros', component: SeteErrosComponent},
 ];
