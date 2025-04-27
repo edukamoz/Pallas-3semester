@@ -2,22 +2,75 @@
   height: 40%;
   width: 40%;
   background-color: #021859;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .games_principal {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
   margin-top: 5rem;
+  padding: 0 2rem;
 }
 
 .card-title,
 .card-text {
   color: aliceblue;
+  text-align: center;
 }
 
 .games {
-
   min-height: 130vh;
   background-color: #010626;
+  padding-bottom: 4rem;
+}
 
+/* RESPONSIVIDADE PARA NOTEBOOKS E MACBOOKS */
+@media (max-width: 1600px) {
+  .card {
+    width: 45%;
+    height: auto;
+  }
+
+  .games_principal {
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .games_principal {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
 }

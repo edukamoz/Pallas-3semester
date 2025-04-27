@@ -1,3 +1,4 @@
+<body >
 <main class="erros">
   <h5>Corrija os blocos de código abaixo:</h5>
 
@@ -13,10 +14,12 @@
     <div *ngFor="let block of codeBlocks; let i = index" class="code-block-container">
       <h6>Bloco {{ i + 1 }}</h6>
       <pre
-        class="code-block"
-        contenteditable="true"
-        (input)="onCodeChange(i, $event)"
-      >{{ block.join('\n') }}</pre>
+      class="code-block"
+      contenteditable="true"
+      [innerText]="block.join('\n')"
+      (input)="onCodeChange(i, $event)"
+    ></pre>
+
     </div>
 
     <div class="button-container">
@@ -49,3 +52,4 @@
     </div>
   </div>
 </main>
+</body>
