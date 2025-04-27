@@ -54,29 +54,30 @@ export class SeteErrosComponent implements OnInit {
   }
 
   onCodeChange(index: number, event: Event): void {
-    const target = event.target as HTMLElement
-    this.codeBlocks[index] = target.innerText.split("\n")
-    console.log(`Bloco ${index} atualizado:`, this.codeBlocks[index])
+    const target = event.target as HTMLElement;
+    const updatedCode = target.innerText.split("\n").map(line => line.trim()); // Divide em linhas e remove espaços extras
+    this.codeBlocks[index] = updatedCode; // Atualiza o bloco de código correspondente
+    console.log(`Bloco ${index} atualizado:`, this.codeBlocks[index]);
   }
 
   checkAnswers(): void {
-    console.log("Verificando respostas...")
-    console.log("Blocos de código enviados:", this.codeBlocks)
-
+    console.log("Verificando respostas...");
+    console.log("Blocos de código enviados:", this.codeBlocks);
+  
     this.http
       .post<FeedbackResponse>(`${this.apiUrl}/api/correct`, {
-        userAnswers: this.codeBlocks,
+        userAnswers: this.codeBlocks, // Envia os blocos de código no formato correto
       })
       .subscribe({
         next: (res) => {
-          console.log("Resposta recebida:", res)
-          this.feedback = res
+          console.log("Resposta recebida:", res);
+          this.feedback = res;
         },
         error: (error) => {
-          console.error("Erro ao verificar respostas:", error)
-          this.errorMessage = "Erro ao verificar as respostas."
+          console.error("Erro ao verificar respostas:", error);
+          this.errorMessage = "Erro ao verificar as respostas.";
         },
-      })
+      });
   }
 
   resetGame(): void {
