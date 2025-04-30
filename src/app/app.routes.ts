@@ -9,11 +9,13 @@ import { DuvidasComponent } from './duvidas/duvidas.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
 import { SeteErrosComponent } from './sete-erros/sete-erros.component';
+import { Challange1CssComponent } from './challange-1-css/challange-1-css.component';
 
 export const routes: Routes = [
   { path: '', component: HomeMainComponent },
   { path: 'jogos', component: JogosComponent },
   { path: 'desafios', component: DesafiosComponent },
+  { path: 'desafios/1', component: Challange1CssComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cadastrar', component: CadastrarComponent },
   { path: 'recursos', component: RecursosComponent },
@@ -24,5 +26,5 @@ export const routes: Routes = [
   //{ path: 'canal-suporte', component: CanalSuporteComponent},
   //{ path: 'depoimentos', component: DepoimentosComponent},
   { path: 'ranking', component: RankingComponent },
-  {path: 'sete-erros', component: SeteErrosComponent},
+  { path: 'sete-erros', component: SeteErrosComponent },
 ];
