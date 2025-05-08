@@ -6,11 +6,12 @@ import { DesafiosComponent } from '../desafios/desafios.component';
 import { JogosComponent } from '../jogos/jogos.component';
 import { RecursosComponent } from '../recursos/recursos.component';
 import { RouterOutlet } from '@angular/router';
+import { Challange1CssComponent } from '../challange-1-css/challange-1-css.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [FooterComponent, HeaderComponent, RouterOutlet, Challange1CssComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

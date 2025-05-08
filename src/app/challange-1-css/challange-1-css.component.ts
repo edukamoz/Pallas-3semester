@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-challange-1-css',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './challange-1-css.component.html',
   styleUrl: './challange-1-css.component.css'
 })

@@ -635,51 +635,51 @@ button:not(.disabled):hover {
 }
 
 .lilypad.green .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/green-log.png");
 }
 
 .lilypad.green.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/green-log.png");
 }
 
 .lilypad.red .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/red-log.png");
 }
 
 .lilypad.red.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/red-log.png");
 }
 
 .lilypad.yellow .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/yellow-log.png");
 }
 
 .lilypad.yellow.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/yellow-log.png");
 }
 
 .frog.green .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/green-owl.png");
 }
 
 .frog.green.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/green-owl.png");
 }
 
 .frog.red .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/red-owl.png");
 }
 
 .frog.red.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/red-owl.png");
 }
 
 .frog.yellow .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/yellow-owl.png");
 }
 
 .frog.yellow.cb-friendly .bg {
-    background-image: url("user1.jpg");
+    background-image: url("/public/yellow-owl.png");
 }
 
 .wrap {
