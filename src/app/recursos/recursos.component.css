@@ -1,28 +1,45 @@
 .container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 70vh;
-    margin: auto;
-    margin-top: 120px;
-    border: 3px solid #7C05F2;
-    background-color: #021859;
-    margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 70vh;
+  margin: 0 auto 5%;
+  border: 3px solid #7C05F2;
+  background-color: #021859;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .recursos {
-  height: 100vh;
+  min-height: 100vh;
   background: #010626;
+  padding-top: 120px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
 
-.principal1{
-    display: flex;
-    justify-content: space-around;
+.principal1 {
+  display: flex;
+  justify-content: space-around;
+  gap: 60px;
+}
+
+.principal1 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .titulos{
     margin: 30px;
     font-family: 'Roboto';
     color:white ;
+}
+
+.btn {
+  margin: 6px 0;
 }
