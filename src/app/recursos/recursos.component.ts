@@ -10,4 +10,9 @@ import { RouterModule } from '@angular/router';
 })
 export class RecursosComponent {
 
+  lerTexto(texto: string) {
+    const utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = 'pt-BR';
+    speechSynthesis.speak(utterance);
+  }
 }

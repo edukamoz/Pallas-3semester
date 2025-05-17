@@ -11,7 +11,7 @@ import { Challange1CssComponent } from '../challange-1-css/challange-1-css.compo
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterOutlet, Challange1CssComponent],
+  imports: [FooterComponent, HeaderComponent, RouterOutlet],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

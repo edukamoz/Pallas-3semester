@@ -1,20 +1,71 @@
 <div class="recursos">
   <div class="container-fluid">
     <div class="principal1">
-      <div>
-        <h1 class="titulos">Download IDE</h1>
-        <a href="https://code.visualstudio.com/docs/setup/setup-overview" class="btn btn-primary" target="_blank">
+
+      <!-- Seção: Download IDE -->
+      <div role="region" aria-labelledby="ideTitle">
+        <h1 id="ideTitle" class="titulos">
+          Download IDE
+          <button 
+            class="btn btn-light" 
+            (click)="lerTexto('Download IDE. Visual Studio Code e extensões disponíveis')" 
+            aria-label="Ler seção Download IDE"
+          >
+            🔊
+          </button>
+        </h1>
+        <a 
+          href="https://code.visualstudio.com/docs/setup/setup-overview" 
+          class="btn btn-primary" 
+          target="_blank"
+          tabindex="0"
+          aria-label="Ir para página de download do Visual Studio Code"
+        >
           Visual Studio Code
         </a>
-        <a href="https://marketplace.visualstudio.com/vscode" class="btn btn-primary" target="_blank">+ Extensões</a>
-      </div>
-      <div>
-        <h1 class="titulos">Tutoriais</h1>
-        <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" class="btn btn-primary" target="_blank">O que é
-          HTML?
+        <a 
+          href="https://marketplace.visualstudio.com/vscode" 
+          class="btn btn-primary" 
+          target="_blank"
+          tabindex="0"
+          aria-label="Ir para marketplace de extensões do VS Code"
+        >
+          + Extensões
         </a>
-        <a href="https://docs.oracle.com/javase/tutorial/" class="btn btn-primary" target="_blank">Java Básico</a>
       </div>
+
+      <!-- Seção: Tutoriais -->
+      <div role="region" aria-labelledby="tutorialTitle">
+        <h1 id="tutorialTitle" class="titulos">
+          Tutoriais
+          <button 
+            class="btn btn-light" 
+            (click)="lerTexto('Tutoriais. HTML e Java básico disponíveis')" 
+            aria-label="Ler seção Tutoriais"
+          >
+            🔊
+          </button>
+        </h1>
+        <a 
+          href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" 
+          class="btn btn-primary" 
+          target="_blank"
+          tabindex="0"
+          aria-label="Ir para tutorial sobre HTML"
+        >
+          O que é HTML?
+        </a>
+        <a 
+          href="https://docs.oracle.com/javase/tutorial/" 
+          class="btn btn-primary" 
+          target="_blank"
+          tabindex="0"
+          aria-label="Ir para tutorial de Java Básico"
+        >
+          Java Básico
+        </a>
+      </div>
+
     </div>
   </div>
 </div>
