@@ -1,45 +1,50 @@
 <div class="Login">
-  <main class="login">
+  <main role="main" class="login">
     <div class="Principal centralizar">
-      <div id="textoLogin" class="login">
+      <div id="textoLogin" class="login" tabindex="0" aria-label="Título da página login">
         <p id="legenda">LOGIN</p>
       </div>
 
       <div id="formLog">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <label>E-mail:</label>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+          <label for="email">E-mail:</label>
           <input
             id="email"
             type="email"
             formControlName="email"
-            [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-          <div class="error-message" *ngIf="loginForm.get('email')?.touched">
+            aria-describedby="email-error"
+            [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          />
+          <div id="email-error" class="error-message" *ngIf="loginForm.get('email')?.touched" aria-live="polite">
             {{ getErrorMessage('email') }}
           </div>
 
-          <label>Senha:</label>
+          <label for="senha">Senha:</label>
           <input
             id="senha"
             type="password"
             formControlName="password"
-            [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-          <div class="error-message" *ngIf="loginForm.get('password')?.touched">
+            aria-describedby="password-error"
+            [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          />
+          <div id="password-error" class="error-message" *ngIf="loginForm.get('password')?.touched" aria-live="polite">
             {{ getErrorMessage('password') }}
           </div>
+
+          <button type="submit" class="buton" [disabled]="loginForm.invalid" disabled="{{loginForm.invalid}}">
+            LOGIN
+          </button>
         </form>
       </div>
 
       <div class="LoginButons">
-        <button class="buton" (click)="onSubmit()" [disabled]="loginForm.invalid">LOGIN</button>
-      </div>
-      
-      <div class="LoginButons">
         <button class="buton"><a routerLink="/cadastrar">CADASTRAR</a></button>
       </div>
-      
 
       <div>
-        <a id="esqueceuSenha" routerLink="/recuperar-senha">Esqueci minha senha</a>
+        <a id="esqueceuSenha" routerLink="/recuperar-senha" tabindex="0" aria-label="Link para recuperação de senha"
+          >Esqueci minha senha</a
+        >
       </div>
     </div>
   </main>
