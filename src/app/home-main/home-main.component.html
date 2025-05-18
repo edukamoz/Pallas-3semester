@@ -1,35 +1,70 @@
 <div class="home-main">
-    <div class="container">
-        <div class="text-container">
-            <h1>TORNE-SE UM</h1>
-            <h1 class="highlight">GUERREIRO</h1>
-            <h1>DA TECNOLOGIA</h1>
-            <button class="btn btn-custom">COMEÇAR AGORA</button>
-        </div>
-        <div class="image-container">
-            <img alt="Athena segurando um escudo e lança" height="600" src="home-menu.svg" width="600" />
-        </div>
+  <div class="container">
+    <div class="text-container">
+      <h1>TORNE-SE UM</h1>
+      <h1 class="highlight">GUERREIRO</h1>
+      <h1>DA TECNOLOGIA</h1>
+      <button class="btn btn-custom">COMEÇAR AGORA</button>
     </div>
-    <div class="content">
-        <div class="image-container">
-            <img alt="Fatec Votorantim building with a ramp and palm trees in front" height="400" src="sobre_nos.png"
-                width="600" />
-        </div>
-        <div class="text-container">
-            <div class="title">SOBRE NÓS</div>
-            <p>
-                A startup PALLAS é um projeto feito na faculdade de tecnologia (FATEC) de Votorantim-SP, o site
-                Athena.dev visa ajudar aqueles que desejam aprender ou aplicar seus conhecimentos referente a front-end,
-                basicamente fornecendo protótipos de páginas para que o usuário programe e receba uma pontuação e
-                avaliação de acordo com o código feito.
-            </p>
-            <p>
-                Ao introduzir formas criativas e divertidas de desafiar nossos usuários para que possam evoluir em seu
-                desempenho e conhecimento, esperamos trazer cada vez mais pessoas para esta área tecnológica,
-                disseminando os conhecimentos numa comunidade interativa e com o objetivo de crescer em coletivo.
-            </p>
-        </div>
+    <div class="image-container">
+      <img alt="Athena segurando um escudo e lança" height="600" src="home-menu.svg" width="600" />
     </div>
-</div>
+  </div>
 
-<app-equipe></app-equipe>
+  <div class="content">
+    <div class="image-container">
+      <img alt="Fatec Votorantim building with a ramp and palm trees in front" height="400" src="sobre_nos.png" width="600" />
+    </div>
+    <div class="text-container">
+      <div class="title">SOBRE NÓS</div>
+      <p>
+        A startup PALLAS é um projeto feito na faculdade de tecnologia (FATEC) de Votorantim-SP, o site Athena.dev visa ajudar aqueles que desejam aprender ou aplicar seus conhecimentos referente a front-end, basicamente fornecendo protótipos de páginas para que o usuário programe e receba uma pontuação e avaliação de acordo com o código feito.
+      </p>
+      <p>
+        Ao introduzir formas criativas e divertidas de desafiar nossos usuários para que possam evoluir em seu desempenho e conhecimento, esperamos trazer cada vez mais pessoas para esta área tecnológica, disseminando os conhecimentos numa comunidade interativa e com o objetivo de crescer em coletivo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Carrossel da Equipe -->
+  <div class="equipe-section py-5">
+    <h2 class="title">NOSSA EQUIPE</h2>
+    <div id="carouselEquipe" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active text-center">
+          <img src="" class="rounded-circle mb-3" alt="Membro 1" width="150" height="150">
+          <h5>Eduardo Kamo</h5>
+          <p>Diretor Executivo (CEO) Guiando a empresa para um futuro mais facil e incrivel!</p>
+        </div>
+        <div class="carousel-item text-center">
+          <img src="" class="rounded-circle mb-3" alt="Membro 2" width="150" height="150">
+          <h5>Iago Yuri</h5>
+          <p>Diretor de TI (CIO) Atuando no Desenvolvimento de novas telas de aplicação</p>
+        </div>
+        <div class="carousel-item text-center">
+          <img src="" class="rounded-circle mb-3" alt="Membro 3" width="150" height="150">
+          <h5>Lucas Vinicios</h5>
+          <p>Analista de T.I Atuando dando suporte Para o s</p>
+        </div>
+        <div class="carousel-item text-center">
+          <img src="" class="rounded-circle mb-3" alt="Membro 4" width="150" height="150">
+          <h5>Matheus Nery</h5>
+          <p>Diretor de Marketing Digital Atuando para engajar a Midia visual da empresa</p>
+        </div>
+        <div class="carousel-item text-center">
+          <img src="" class="rounded-circle mb-3" alt="Membro 5" width="150" height="150">
+          <h5>Nelson de Oliveira</h5>
+          <p>Diretor de Operações (COO) Atuando na soluções de conflitos E processos</p>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselEquipe" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselEquipe" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+  </div>
+</div>
