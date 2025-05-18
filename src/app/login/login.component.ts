@@ -8,28 +8,36 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']  // Corrigido aqui para styleUrls (plural)
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['', [
-        Validators.required,
-        Validators.email,
-        Validators.maxLength(100)
-      ]],
-      password: ['', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/)
-      ]]
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(30),
+          Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/)
+        ]
+      ]
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.readTitleAloud();
+  }
+
+  readTitleAloud() {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance('Página de login');
+      window.speechSynthesis.speak(utterance);
+    }
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {

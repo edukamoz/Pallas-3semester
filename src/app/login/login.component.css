@@ -157,3 +157,11 @@ a {
         margin: 0 2.5rem; /* Ajuste no margin para telas menores */
     }
 }
+
+/* Adicionado: destaque visível para foco (acessibilidade teclado) */
+input:focus,
+button:focus,
+a:focus {
+  outline: 3px solid #BE7DFF;
+  outline-offset: 2px;
+}
