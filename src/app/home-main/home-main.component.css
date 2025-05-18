@@ -74,3 +74,34 @@
     font-size: 2rem;
     margin-bottom: 20px;
 }
+
+/* ----------- Equipe Carousel ----------- */
+
+.equipe-section {
+    background-color: #010626;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.equipe-section img {
+    object-fit: cover;
+    border: 4px solid #00aaff;
+}
+
+.carousel-item h5 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #00aaff;
+}
+
+.carousel-item p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #00aaff;
+    padding: 10px;
+    border-radius: 50%;
+}
