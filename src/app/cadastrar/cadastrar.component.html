@@ -2,17 +2,33 @@
   <div class="Principal">
     <div class="titulo">
       <p id="tituloCadastro">CADASTRO</p>
-      <button class="botao-leitura" (click)="lerTitulo()" aria-label="Ouvir título Cadastro">🔊</button>
+      <button
+        class="botao-leitura"
+        (click)="lerTitulo()"
+        aria-label="Ouvir título Cadastro"
+        (mouseenter)="falar('Ouvir título Cadastro')"
+        (focus)="falar('Ouvir título Cadastro')"
+      >
+        🔊
+      </button>
     </div>
 
     <div class="cadastro">
       <div id="img_user">
-        <img src="Perfil.png" alt="Ícone de usuário" id="User">
+        <img src="Perfil.png" alt="Ícone de usuário" id="User" />
 
-        <label for="Carregar" class="upload-label" tabindex="0" role="button" aria-label="Selecionar imagem de perfil">
+        <label
+          for="Carregar"
+          class="upload-label"
+          tabindex="0"
+          role="button"
+          aria-label="Selecionar imagem de perfil"
+          (mouseenter)="falar('Selecionar imagem de perfil')"
+          (focus)="falar('Selecionar imagem de perfil')"
+        >
           Selecionar imagem
         </label>
-        <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)">
+        <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)" />
         <div *ngIf="selectedFileName" class="selected-file-name">
           Arquivo selecionado: {{ selectedFileName }}
         </div>
@@ -29,7 +45,9 @@
             aria-describedby="usernameError"
             aria-label="Nome do Usuário"
             [attr.aria-invalid]="cadastroForm.get('username')?.invalid && cadastroForm.get('username')?.touched"
-          >
+            (mouseenter)="falar('Campo Nome do Usuário')"
+            (focus)="falar('Campo Nome do Usuário')"
+          />
           <div class="error-message" id="usernameError" *ngIf="cadastroForm.get('username')?.touched">
             {{ getErrorMessage('username') }}
           </div>
@@ -43,7 +61,9 @@
             aria-describedby="emailError"
             aria-label="E-mail"
             [attr.aria-invalid]="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched"
-          >
+            (mouseenter)="falar('Campo E-mail')"
+            (focus)="falar('Campo E-mail')"
+          />
           <div class="error-message" id="emailError" *ngIf="cadastroForm.get('email')?.touched">
             {{ getErrorMessage('email') }}
           </div>
@@ -57,7 +77,9 @@
             aria-describedby="passwordError"
             aria-label="Senha"
             [attr.aria-invalid]="cadastroForm.get('password')?.invalid && cadastroForm.get('password')?.touched"
-          >
+            (mouseenter)="falar('Campo Senha')"
+            (focus)="falar('Campo Senha')"
+          />
           <div class="error-message" id="passwordError" *ngIf="cadastroForm.get('password')?.touched">
             {{ getErrorMessage('password') }}
           </div>
@@ -70,8 +92,12 @@
             aria-required="true"
             aria-describedby="confirmPasswordError"
             aria-label="Confirme sua senha"
-            [attr.aria-invalid]="cadastroForm.get('confirmPassword')?.invalid && cadastroForm.get('confirmPassword')?.touched"
-          >
+            [attr.aria-invalid]="
+              cadastroForm.get('confirmPassword')?.invalid && cadastroForm.get('confirmPassword')?.touched
+            "
+            (mouseenter)="falar('Campo Confirme sua senha')"
+            (focus)="falar('Campo Confirme sua senha')"
+          />
           <div class="error-message" id="confirmPasswordError" *ngIf="cadastroForm.get('confirmPassword')?.touched">
             {{ getErrorMessage('confirmPassword') }}
           </div>
@@ -80,8 +106,23 @@
     </div>
 
     <div class="cadastroButons">
-      <button class="buton" routerLink="/login" aria-label="Ir para a página de login">Já sou cadastrado</button>
-      <button class="buton" (click)="onSubmit()" [disabled]="cadastroForm.invalid" aria-label="Finalizar cadastro">
+      <button
+        class="buton"
+        routerLink="/login"
+        aria-label="Ir para a página de login"
+        (mouseenter)="falar('Ir para a página de login')"
+        (focus)="falar('Ir para a página de login')"
+      >
+        Já sou cadastrado
+      </button>
+      <button
+        class="buton"
+        (click)="onSubmit()"
+        [disabled]="cadastroForm.invalid"
+        aria-label="Finalizar cadastro"
+        (mouseenter)="falar('Clique para finalizar o cadastro')"
+        (focus)="falar('Clique para finalizar o cadastro')"
+      >
         Finalizar Cadastro
       </button>
     </div>

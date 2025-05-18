@@ -76,10 +76,21 @@ export class CadastrarComponent implements OnInit {
     return '';
   }
 
-  // ✅ Função de acessibilidade para leitura do título
+  // Função para leitura do título
   lerTitulo(): void {
     const titulo = 'Cadastro';
     const speech = new SpeechSynthesisUtterance(titulo);
+    speech.lang = 'pt-BR';
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+  }
+
+  // Função para falar mensagem ao passar mouse ou focar
+  falar(mensagem: string): void {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel(); // interrompe fala anterior para não sobrepor
+    }
+    const speech = new SpeechSynthesisUtterance(mensagem);
     speech.lang = 'pt-BR';
     speech.rate = 1;
     window.speechSynthesis.speak(speech);
