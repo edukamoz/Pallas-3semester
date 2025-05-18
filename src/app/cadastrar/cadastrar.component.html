@@ -1,54 +1,89 @@
-<main class="alinhar">
-    <div class="Principal">
-        <div class="titulo">
-            <p>CADASTRO</p>
-        </div>
-        <div class="cadastro">
-            <div id="img_user">
-                <img src="Perfil.png" alt="Icone_Usuário" id="User">
-
-                <label for="Carregar" class="upload-label">Selecionar imagem</label>
-                <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)">
-                <div *ngIf="selectedFileName" class="selected-file-name">
-                    Arquivo selecionado: {{ selectedFileName }}
-                </div>
-            </div>
-
-            <div id="formCad">
-                <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-                    <label for="username">Nome do Usuário:</label>
-                    <input id="username" type="text" formControlName="username">
-                    <div class="error-message" *ngIf="cadastroForm.get('username')?.touched">
-                        {{ getErrorMessage('username') }}
-                    </div>
-
-                    <label for="email">E-mail:</label>
-                    <input id="email" type="email" formControlName="email">
-                    <div class="error-message" *ngIf="cadastroForm.get('email')?.touched">
-                        {{ getErrorMessage('email') }}
-                    </div>
-
-                    <label for="password">Senha:</label>
-                    <input id="password" type="password" formControlName="password">
-                    <div class="error-message" *ngIf="cadastroForm.get('password')?.touched">
-                        {{ getErrorMessage('password') }}
-                    </div>
-
-                    <label for="confirmPassword">Confirme sua senha:</label>
-                    <input id="confirmPassword" type="password" formControlName="confirmPassword">
-                    <div class="error-message" *ngIf="cadastroForm.get('confirmPassword')?.touched">
-                        {{ getErrorMessage('confirmPassword') }}
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="cadastroButons">
-            <button class="buton" routerLink="/login">Já sou cadastrado</button>
-            <button class="buton" (click)="onSubmit()" [disabled]="cadastroForm.invalid">
-                Finalizar Cadastro
-            </button>
-        </div>
+<main class="alinhar" role="main">
+  <div class="Principal">
+    <div class="titulo">
+      <p id="tituloCadastro">CADASTRO</p>
+      <button class="botao-leitura" (click)="lerTitulo()" aria-label="Ouvir título Cadastro">🔊</button>
     </div>
 
+    <div class="cadastro">
+      <div id="img_user">
+        <img src="Perfil.png" alt="Ícone de usuário" id="User">
+
+        <label for="Carregar" class="upload-label" tabindex="0" role="button" aria-label="Selecionar imagem de perfil">
+          Selecionar imagem
+        </label>
+        <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)">
+        <div *ngIf="selectedFileName" class="selected-file-name">
+          Arquivo selecionado: {{ selectedFileName }}
+        </div>
+      </div>
+
+      <div id="formCad">
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+          <label for="username">Nome do Usuário:</label>
+          <input
+            id="username"
+            type="text"
+            formControlName="username"
+            aria-required="true"
+            aria-describedby="usernameError"
+            aria-label="Nome do Usuário"
+            [attr.aria-invalid]="cadastroForm.get('username')?.invalid && cadastroForm.get('username')?.touched"
+          >
+          <div class="error-message" id="usernameError" *ngIf="cadastroForm.get('username')?.touched">
+            {{ getErrorMessage('username') }}
+          </div>
+
+          <label for="email">E-mail:</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            aria-required="true"
+            aria-describedby="emailError"
+            aria-label="E-mail"
+            [attr.aria-invalid]="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched"
+          >
+          <div class="error-message" id="emailError" *ngIf="cadastroForm.get('email')?.touched">
+            {{ getErrorMessage('email') }}
+          </div>
+
+          <label for="password">Senha:</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            aria-required="true"
+            aria-describedby="passwordError"
+            aria-label="Senha"
+            [attr.aria-invalid]="cadastroForm.get('password')?.invalid && cadastroForm.get('password')?.touched"
+          >
+          <div class="error-message" id="passwordError" *ngIf="cadastroForm.get('password')?.touched">
+            {{ getErrorMessage('password') }}
+          </div>
+
+          <label for="confirmPassword">Confirme sua senha:</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            formControlName="confirmPassword"
+            aria-required="true"
+            aria-describedby="confirmPasswordError"
+            aria-label="Confirme sua senha"
+            [attr.aria-invalid]="cadastroForm.get('confirmPassword')?.invalid && cadastroForm.get('confirmPassword')?.touched"
+          >
+          <div class="error-message" id="confirmPasswordError" *ngIf="cadastroForm.get('confirmPassword')?.touched">
+            {{ getErrorMessage('confirmPassword') }}
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="cadastroButons">
+      <button class="buton" routerLink="/login" aria-label="Ir para a página de login">Já sou cadastrado</button>
+      <button class="buton" (click)="onSubmit()" [disabled]="cadastroForm.invalid" aria-label="Finalizar cadastro">
+        Finalizar Cadastro
+      </button>
+    </div>
+  </div>
 </main>
