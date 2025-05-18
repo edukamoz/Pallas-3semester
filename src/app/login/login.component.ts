@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']  // Corrigido aqui para styleUrls (plural)
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -35,6 +35,15 @@ export class LoginComponent implements OnInit {
   readTitleAloud() {
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance('Página de login');
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  speak(text: string) {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      // Cancelar qualquer fala em andamento para evitar sobreposição
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
     }
   }

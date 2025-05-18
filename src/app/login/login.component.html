@@ -1,48 +1,83 @@
 <div class="Login">
   <main role="main" class="login">
     <div class="Principal centralizar">
-      <div id="textoLogin" class="login" tabindex="0" aria-label="Título da página login">
+      <div
+        id="textoLogin"
+        class="login"
+        tabindex="0"
+        aria-label="Título da página login"
+        (mouseenter)="speak('Página de login')"
+      >
         <p id="legenda">LOGIN</p>
       </div>
 
       <div id="formLog">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-          <label for="email">E-mail:</label>
+          <label for="email" (mouseenter)="speak('Campo de e-mail')">E-mail:</label>
           <input
             id="email"
             type="email"
             formControlName="email"
             aria-describedby="email-error"
             [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+            (mouseenter)="speak('Campo de e-mail')"
           />
-          <div id="email-error" class="error-message" *ngIf="loginForm.get('email')?.touched" aria-live="polite">
+          <div
+            id="email-error"
+            class="error-message"
+            *ngIf="loginForm.get('email')?.touched"
+            aria-live="polite"
+            (mouseenter)="speak(getErrorMessage('email'))"
+          >
             {{ getErrorMessage('email') }}
           </div>
 
-          <label for="senha">Senha:</label>
+          <label for="senha" (mouseenter)="speak('Campo de senha')">Senha:</label>
           <input
             id="senha"
             type="password"
             formControlName="password"
             aria-describedby="password-error"
             [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+            (mouseenter)="speak('Campo de senha')"
           />
-          <div id="password-error" class="error-message" *ngIf="loginForm.get('password')?.touched" aria-live="polite">
+          <div
+            id="password-error"
+            class="error-message"
+            *ngIf="loginForm.get('password')?.touched"
+            aria-live="polite"
+            (mouseenter)="speak(getErrorMessage('password'))"
+          >
             {{ getErrorMessage('password') }}
           </div>
 
-          <button type="submit" class="buton" [disabled]="loginForm.invalid" disabled="{{loginForm.invalid}}">
+          <button
+            type="submit"
+            class="buton"
+            [disabled]="loginForm.invalid"
+            (mouseenter)="speak(loginForm.invalid ? 'Formulário inválido. Corrija os erros para habilitar o botão login' : 'Botão login, pronto para enviar o formulário')"
+          >
             LOGIN
           </button>
         </form>
       </div>
 
       <div class="LoginButons">
-        <button class="buton"><a routerLink="/cadastrar">CADASTRAR</a></button>
+        <button
+          class="buton"
+          (mouseenter)="speak('Botão cadastrar, clique para ir para a página de cadastro')"
+        >
+          <a routerLink="/cadastrar">CADASTRAR</a>
+        </button>
       </div>
 
       <div>
-        <a id="esqueceuSenha" routerLink="/recuperar-senha" tabindex="0" aria-label="Link para recuperação de senha"
+        <a
+          id="esqueceuSenha"
+          routerLink="/recuperar-senha"
+          tabindex="0"
+          aria-label="Link para recuperação de senha"
+          (mouseenter)="speak('Link para recuperação de senha')"
           >Esqueci minha senha</a
         >
       </div>
