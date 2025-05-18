@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-cadastrar',
   standalone: true,
@@ -21,10 +20,10 @@ export class CadastrarComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    },);
+    });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -76,5 +75,13 @@ export class CadastrarComponent implements OnInit {
     }
     return '';
   }
-}
 
+  // ✅ Função de acessibilidade para leitura do título
+  lerTitulo(): void {
+    const titulo = 'Cadastro';
+    const speech = new SpeechSynthesisUtterance(titulo);
+    speech.lang = 'pt-BR';
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+  }
+}
