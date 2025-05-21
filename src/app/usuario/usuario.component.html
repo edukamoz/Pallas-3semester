@@ -1,0 +1,252 @@
+<main class="alinhar" role="main">
+  <div class="Principal">
+    <div class="titulo">
+      <p id="tituloUsuario">PERFIL DO USUÁRIO</p>
+      <button
+        class="botao-leitura"
+        (click)="lerTitulo()"
+        aria-label="Ouvir título Perfil do Usuário"
+        (mouseenter)="falar('Ouvir título Perfil do Usuário')"
+        (focus)="falar('Ouvir título Perfil do Usuário')"
+      >
+        🔊
+      </button>
+    </div>
+
+    <!-- Abas de navegação -->
+    <div class="abas">
+      <button 
+        class="aba" 
+        [class.ativa]="abaAtiva === 'perfil'" 
+        (click)="trocarAba('perfil')"
+        aria-label="Aba de perfil"
+        (mouseenter)="falar('Aba de perfil')"
+        (focus)="falar('Aba de perfil')"
+      >
+        Perfil
+      </button>
+      <button 
+        class="aba" 
+        [class.ativa]="abaAtiva === 'email'" 
+        (click)="trocarAba('email')"
+        aria-label="Aba de email"
+        (mouseenter)="falar('Aba de email')"
+        (focus)="falar('Aba de email')"
+      >
+        Email
+      </button>
+      <button 
+        class="aba" 
+        [class.ativa]="abaAtiva === 'senha'" 
+        (click)="trocarAba('senha')"
+        aria-label="Aba de senha"
+        (mouseenter)="falar('Aba de senha')"
+        (focus)="falar('Aba de senha')"
+      >
+        Senha
+      </button>
+      <button 
+        class="aba" 
+        [class.ativa]="abaAtiva === 'foto'" 
+        (click)="trocarAba('foto')"
+        aria-label="Aba de foto"
+        (mouseenter)="falar('Aba de foto')"
+        (focus)="falar('Aba de foto')"
+      >
+        Foto
+      </button>
+    </div>
+
+    <!-- Conteúdo da aba de perfil -->
+    <div class="conteudo-aba" *ngIf="abaAtiva === 'perfil'">
+      <div class="cadastro">
+        <div id="formCad">
+          <form [formGroup]="perfilForm" (ngSubmit)="salvarPerfil()">
+            <label for="username">Nome do Usuário:</label>
+            <input
+              id="username"
+              type="text"
+              formControlName="username"
+              aria-required="true"
+              aria-describedby="usernameError"
+              aria-label="Nome do Usuário"
+              [attr.aria-invalid]="perfilForm.get('username')?.invalid && perfilForm.get('username')?.touched"
+              (mouseenter)="falar('Campo Nome do Usuário')"
+              (focus)="falar('Campo Nome do Usuário')"
+            />
+            <div class="error-message" id="usernameError" *ngIf="perfilForm.get('username')?.touched">
+              {{ getErrorMessage(perfilForm, 'username') }}
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cadastroButons">
+        <button
+          class="buton"
+          (click)="salvarPerfil()"
+          [disabled]="perfilForm.invalid"
+          aria-label="Salvar alterações do perfil"
+          (mouseenter)="falar('Clique para salvar alterações do perfil')"
+          (focus)="falar('Clique para salvar alterações do perfil')"
+        >
+          Salvar Alterações
+        </button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da aba de email -->
+    <div class="conteudo-aba" *ngIf="abaAtiva === 'email'">
+      <div class="cadastro">
+        <div id="formCad">
+          <form [formGroup]="emailForm" (ngSubmit)="salvarEmail()">
+            <label for="email">Novo E-mail:</label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              aria-required="true"
+              aria-describedby="emailError"
+              aria-label="E-mail"
+              [attr.aria-invalid]="emailForm.get('email')?.invalid && emailForm.get('email')?.touched"
+              (mouseenter)="falar('Campo E-mail')"
+              (focus)="falar('Campo E-mail')"
+            />
+            <div class="error-message" id="emailError" *ngIf="emailForm.get('email')?.touched">
+              {{ getErrorMessage(emailForm, 'email') }}
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cadastroButons">
+        <button
+          class="buton"
+          (click)="salvarEmail()"
+          [disabled]="emailForm.invalid"
+          aria-label="Salvar alterações de email"
+          (mouseenter)="falar('Clique para salvar alterações de email')"
+          (focus)="falar('Clique para salvar alterações de email')"
+        >
+          Atualizar Email
+        </button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da aba de senha -->
+    <div class="conteudo-aba" *ngIf="abaAtiva === 'senha'">
+      <div class="cadastro">
+        <div id="formCad">
+          <form [formGroup]="senhaForm" (ngSubmit)="salvarSenha()">
+            <label for="senhaAtual">Senha Atual:</label>
+            <input
+              id="senhaAtual"
+              type="password"
+              formControlName="senhaAtual"
+              aria-required="true"
+              aria-describedby="senhaAtualError"
+              aria-label="Senha Atual"
+              [attr.aria-invalid]="senhaForm.get('senhaAtual')?.invalid && senhaForm.get('senhaAtual')?.touched"
+              (mouseenter)="falar('Campo Senha Atual')"
+              (focus)="falar('Campo Senha Atual')"
+            />
+            <div class="error-message" id="senhaAtualError" *ngIf="senhaForm.get('senhaAtual')?.touched">
+              {{ getErrorMessage(senhaForm, 'senhaAtual') }}
+            </div>
+
+            <label for="novaSenha">Nova Senha:</label>
+            <input
+              id="novaSenha"
+              type="password"
+              formControlName="novaSenha"
+              aria-required="true"
+              aria-describedby="novaSenhaError"
+              aria-label="Nova Senha"
+              [attr.aria-invalid]="senhaForm.get('novaSenha')?.invalid && senhaForm.get('novaSenha')?.touched"
+              (mouseenter)="falar('Campo Nova Senha')"
+              (focus)="falar('Campo Nova Senha')"
+            />
+            <div class="error-message" id="novaSenhaError" *ngIf="senhaForm.get('novaSenha')?.touched">
+              {{ getErrorMessage(senhaForm, 'novaSenha') }}
+            </div>
+
+            <label for="confirmarSenha">Confirme sua nova senha:</label>
+            <input
+              id="confirmarSenha"
+              type="password"
+              formControlName="confirmarSenha"
+              aria-required="true"
+              aria-describedby="confirmarSenhaError"
+              aria-label="Confirme sua nova senha"
+              [attr.aria-invalid]="senhaForm.get('confirmarSenha')?.invalid && senhaForm.get('confirmarSenha')?.touched"
+              (mouseenter)="falar('Campo Confirme sua nova senha')"
+              (focus)="falar('Campo Confirme sua nova senha')"
+            />
+            <div class="error-message" id="confirmarSenhaError" *ngIf="senhaForm.get('confirmarSenha')?.touched">
+              {{ getErrorMessage(senhaForm, 'confirmarSenha') }}
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cadastroButons">
+        <button
+          class="buton"
+          (click)="salvarSenha()"
+          [disabled]="senhaForm.invalid"
+          aria-label="Atualizar senha"
+          (mouseenter)="falar('Clique para atualizar senha')"
+          (focus)="falar('Clique para atualizar senha')"
+        >
+          Atualizar Senha
+        </button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da aba de foto -->
+    <div class="conteudo-aba" *ngIf="abaAtiva === 'foto'">
+      <div class="cadastro">
+        <div id="img_user">
+          <img src="Perfil.png" alt="Ícone de usuário" id="User" />
+
+          <label
+            for="Carregar"
+            class="upload-label"
+            tabindex="0"
+            role="button"
+            aria-label="Selecionar imagem de perfil"
+            (mouseenter)="falar('Selecionar imagem de perfil')"
+            (focus)="falar('Selecionar imagem de perfil')"
+          >
+            Selecionar imagem
+          </label>
+          <input type="file" id="Carregar" class="upload-input" (change)="onFileSelected($event)" />
+          <div *ngIf="selectedFileName" class="selected-file-name">
+            Arquivo selecionado: {{ selectedFileName }}
+          </div>
+        </div>
+      </div>
+      <div class="cadastroButons">
+        <button
+          class="buton"
+          [disabled]="!selectedFileName"
+          aria-label="Atualizar foto"
+          (mouseenter)="falar('Clique para atualizar foto')"
+          (focus)="falar('Clique para atualizar foto')"
+        >
+          Atualizar Foto
+        </button>
+      </div>
+    </div>
+
+    <!-- Botão de voltar -->
+    <div class="cadastroButons voltar-btn">
+      <button
+        class="buton"
+        routerLink="/dashboard"
+        aria-label="Voltar para o dashboard"
+        (mouseenter)="falar('Voltar para o dashboard')"
+        (focus)="falar('Voltar para o dashboard')"
+      >
+        Voltar
+      </button>
+    </div>
+  </div>
+</main>

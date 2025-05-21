@@ -37,9 +37,11 @@ form input {
     font-size: 1.4rem;
 }
 
-input.invalid {
-    border: 0.125rem solid var(--cor-erro);
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
 }
+
 
 .error-message {
     color: var(--cor-erro);
@@ -86,7 +88,7 @@ a {
 }
 
 #textoLogin {
-    font-size: 2.625rem; /* Tamanho de fonte ajustado */
+    font-size: 2.625rem;
     display: flex;
     justify-content: center;
     font-family: 'Graduate', 'serif';
@@ -103,28 +105,27 @@ a {
 
 .login {
     background-color: #021859;
-    margin: 0 6.25rem; /* Menor margem para melhor aproveitamento do espaço */
+    margin: 0 6.25rem;
 }
 
-/* Estilo para o link "Esqueci minha senha" */
+
 #esqueceuSenha {
     color: #BE7DFF;
     margin-top: 1.25rem;
-    font-size: 1.125rem; /* Fonte ajustada */
+    font-size: 1.125rem;
 }
 
-/* Espaçamento entre os botões */
+
 .LoginButons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; /* Espaço mais suave entre os botões */
+    gap: 1rem;
     padding: 0,05rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
 }
 
-/* Garantir que o botão de "CADASTRAR" tenha um espaçamento adicional entre o "LOGIN" */
 .buton + .buton {
     margin-top: 0.625rem;
 }

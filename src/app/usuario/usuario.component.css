@@ -40,13 +40,65 @@
   text-align: center;
   color: white;
   text-shadow: 4px 3px black;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botao-leitura {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Estilos para as abas */
+.abas {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.aba {
+  padding: 0.8rem 1.5rem;
+  background-color: #0a2580;
+  color: white;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  font-family: 'Graduate', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 2px 2px black;
+}
+
+.aba:hover {
+  background-color: #1a3590;
+}
+
+.aba.ativa {
+  background-color: white;
+  color: #021859;
+  box-shadow: 3px 3px black;
+}
+
+/* Conteúdo das abas */
+.conteudo-aba {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cadastro {
   width: 100%;
   display: flex;
   gap: 2rem;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -92,14 +144,20 @@
   background-color: #e6e6e6;
 }
 
+.selected-file-name {
+  margin-top: 1rem;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
 #formCad {
   width: 100%;
   max-width: 400px;
-  margin-left: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem;
 }
 
 form {
@@ -108,6 +166,7 @@ form {
   gap: 0.2rem;
   font-family: 'Graduate', sans-serif;
   width: 100%;
+  color: white;
 }
 
 label {
@@ -131,22 +190,6 @@ label ~ input {
   font-size: 0.95rem;
   font-family: 'Roboto', sans-serif;
   transition: all 0.2s ease-in-out;
-}
-
-/* Ajustes responsivos para telas menores */
-@media (max-width: 768px) {
-  label ~ input {
-    min-height: 2.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Para telas maiores */
-@media (min-width: 1440px) {
-  label ~ input {
-    min-height: 3.2rem;
-    font-size: 1rem;
-  }
 }
 
 /* Estilo para o erro (texto) */
@@ -175,9 +218,13 @@ input.ng-valid.ng-touched {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.voltar-btn {
+  margin-top: 3rem;
 }
 
 .buton {
@@ -192,6 +239,7 @@ input.ng-valid.ng-touched {
   cursor: pointer;
   background-color: white;
   color: black;
+  font-family: 'Graduate', sans-serif;
 }
 
 .buton:disabled {
@@ -210,6 +258,17 @@ a {
 @media (max-width: 1024px) {
   .titulo {
     font-size: 2rem;
+  }
+
+  .abas {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .aba {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
   }
 
   .cadastro {
@@ -266,4 +325,3 @@ a {
     height: 2.6rem;
   }
 }
-
