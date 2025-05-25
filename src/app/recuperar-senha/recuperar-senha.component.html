@@ -1,23 +1,41 @@
 <div class="Login">
   <main role="main" class="login">
     <div class="Principal centralizar">
-      <div id="textoLogin" class="login" tabindex="0">
+      <div id="textoLogin" class="login" tabindex="0" 
+        (mouseenter)="lerTexto('Título da página: Recuperar Senha')">
         <p id="legenda">RECUPERAR SENHA</p>
+        <button 
+          type="button" 
+          aria-label="Reproduzir título da página" 
+          (click)="falarTitulo()" 
+          (mouseenter)="lerTexto('Ler título da página')"
+          class="btn-audio"
+        >
+          🔊
+        </button>
       </div>
 
       <form *ngIf="!submitted" [formGroup]="recuperarForm" (ngSubmit)="onSubmit()" novalidate>
-        <label for="email">Digite seu e-mail:</label>
+        <label for="email" (mouseenter)="lerTexto('Campo para digitar seu e-mail')">Digite seu e-mail:</label>
         <input
           id="email"
           type="email"
           formControlName="email"
           aria-describedby="email-error"
+          aria-label="Digite seu e-mail"
+          (mouseenter)="lerTexto('Campo para digitar seu e-mail')"
         />
         <div class="error-message" id="email-error">
           {{ getErrorMessage() }}
         </div>
 
-        <button class="buton" type="submit" [disabled]="recuperarForm.invalid">
+        <button 
+          class="buton" 
+          type="submit" 
+          [disabled]="recuperarForm.invalid"
+          aria-label="Enviar código de recuperação"
+          (mouseenter)="lerTexto('Botão para enviar código de recuperação')"
+        >
           ENVIAR CÓDIGO
         </button>
       </form>
@@ -26,6 +44,16 @@
         <p>Seu código de recuperação foi enviado para: <strong>{{ emailEnviado }}</strong></p>
         <p>Para sua segurança, o código irá expirar em: <strong>{{ minutos }}:{{ segundos }}</strong></p>
       </div>
+
+      <button
+        class="buton"
+        type="button"
+        aria-label="Voltar à página de login"
+        (click)="voltarLogin()"
+        (mouseenter)="lerTexto('Botão para voltar à página de login')"
+      >
+        VOLTAR AO LOGIN
+      </button>
     </div>
   </main>
 </div>

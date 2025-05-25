@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recuperar-senha',
@@ -17,7 +18,7 @@ export class RecuperarSenhaComponent implements OnInit {
   tempoRestante = 300; // 5 minutos em segundos
   timer: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.recuperarForm = this.fb.group({
       email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
     });
@@ -68,5 +69,25 @@ export class RecuperarSenhaComponent implements OnInit {
       if (control.errors['maxlength']) return 'Máximo de 100 caracteres';
     }
     return '';
+  }
+
+  // Função para ler um texto em voz alta usando SpeechSynthesis API
+  lerTexto(texto: string): void {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel(); // cancela fala anterior
+      const fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = 'pt-BR';
+      window.speechSynthesis.speak(fala);
+    }
+  }
+
+  // Falar o título da página
+  falarTitulo(): void {
+    this.lerTexto('Recuperar Senha');
+  }
+
+  // Navegar para a página de login
+  voltarLogin(): void {
+    this.router.navigate(['/login']);
   }
 }
