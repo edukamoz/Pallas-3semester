@@ -65,12 +65,12 @@
   height: auto;
 }
 
-/* Input de upload escondido */
+
 .upload-input {
   display: none;
 }
 
-/* Label estilizado como botão de upload */
+
 .upload-label {
   background-color: white;
   color: black;
@@ -133,7 +133,7 @@ label ~ input {
   transition: all 0.2s ease-in-out;
 }
 
-/* Ajustes responsivos para telas menores */
+
 @media (max-width: 768px) {
   label ~ input {
     min-height: 2.5rem;
@@ -141,7 +141,7 @@ label ~ input {
   }
 }
 
-/* Para telas maiores */
+
 @media (min-width: 1440px) {
   label ~ input {
     min-height: 3.2rem;
@@ -149,7 +149,7 @@ label ~ input {
   }
 }
 
-/* Estilo para o erro (texto) */
+
 .error-message {
   color: red;
   font-size: 0.9rem;
@@ -159,13 +159,13 @@ label ~ input {
   text-align: left;
 }
 
-/* Borda vermelha nos inputs com erro */
+
 input.ng-invalid.ng-touched {
   border: 2px solid red;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
 }
 
-/* Estilo para inputs válidos (opcional) */
+
 input.ng-valid.ng-touched {
   border: 2px solid green;
   box-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
@@ -206,7 +206,7 @@ a {
   text-decoration: none;
 }
 
-/* Responsivo para telas até 1024px */
+
 @media (max-width: 1024px) {
   .titulo {
     font-size: 2rem;

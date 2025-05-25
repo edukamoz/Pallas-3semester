@@ -1,78 +1,177 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* ----------------------------- Esqueceu Senha ----------------------------- */
-
-.esqueci-senha {
-    background-color: var(--cor-de-fundo);
-    margin-top: 120px;
-    height: 70vh;
+.Principal {
+    background-color: var(--cor-secundaria);
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+    margin-top: 10vh;
+    width: 85%;
+    max-width: 50rem;
+    min-height: 60vh;
+    border-radius: 0.625rem;
+    box-sizing: border-box;
 }
 
-.Principal {
-    text-align: center;
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #ffffff; 
+}
+
+form input {
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.3125rem;
+    border: 1px solid #ccc;
+    box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+    margin-top: 0.625rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-indent: 0.625rem;
+    font-size: 1.4rem;
+}
+
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}
+
+.error-message {
+    color: var(--cor-erro);
+    font-size: 0.9rem;
+    margin-bottom: 0.625rem;
+    min-height: 1.25rem;
+}
+
+#formCad {
+    width: 100%;
+    height: 70%;
+}
+
+.buton {
+    width: auto;
+    min-width: 10rem;
+    max-width: 100%;
+    padding: 0.75rem 1.5rem;
+    height: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0.3125rem 0.375rem black;
+    margin-bottom: 1rem;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #cccccc;
+}
+
+a {
+    font-style: normal;
+    color: black;
+    text-decoration: none;
 }
 
 #textoLogin {
-    font-size: 30px;
+    font-size: 2.625rem;
     display: flex;
     justify-content: center;
+    font-family: 'Graduate', 'serif';
 }
 
-#formLog {
-    width: 50%;
-    height: 70%;
+#legenda {
+    text-shadow: 0.125rem 0.1875rem black;
+}
+
+.Login {
+    background-color: #010626;
+    padding: 3rem 0;
+}
+
+.login {
+    background-color: #021859;
+    margin: 0 6.25rem;
 }
 
 #esqueceuSenha {
     color: #BE7DFF;
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
 }
 
-.centralizar {
-    margin: auto;
+.LoginButons {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    align-content: center;
-    justify-content: center;
+    gap: 1rem;
+    padding: 0.05rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
-#timer {
-    display: none;
-    font-size: 24px;
-    font-weight: bold;
+.buton + .buton {
+    margin-top: 0.625rem;
 }
 
-.mensagem {
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
 
+@media screen and (max-width: 48rem) {
+    .Principal {
+        width: 90%;
+        margin-top: 5rem;
+    }
+
+    #textoLogin {
+        font-size: 2.25rem;
+    }
+
+    .buton {
+        font-size: 1.4rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    form input {
+        font-size: 1.125rem;
+    }
+
+    .error-message {
+        font-size: 1rem;
+    }
+
+    .login {
+        margin: 0 2.5rem;
+    }
 }
 
-#voltar_login {
-    color: #BE7DFF;
-    justify-self: center;
-}
 
-#textoRecovery {
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-
-}
-
-.recuperar_botao {
-    display: flex;
-    justify-self: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.buton {
-    padding: 5px;
-    color: black;
-    font-family: "Roboto" serif;
-    justify-self: center;
+input:focus,
+button:focus,
+a:focus {
+    outline: 3px solid #BE7DFF;
+    outline-offset: 2px;
 }

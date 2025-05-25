@@ -1,31 +1,31 @@
-<div class="esqueci-senha">
-
+<div class="Login">
+  <main role="main" class="login">
     <div class="Principal centralizar">
-        <div id="textoLogin" class="titulo">
-            <p>RECUPERAR A MINHA SENHA</p>
-        </div>
-        <br>
-        <div id="FormRecuperacao">
-            <label>E-mail ou ID:</label>
-            <input id="email" type="text">
+      <div id="textoLogin" class="login" tabindex="0">
+        <p id="legenda">RECUPERAR SENHA</p>
+      </div>
 
+      <form *ngIf="!submitted" [formGroup]="recuperarForm" (ngSubmit)="onSubmit()" novalidate>
+        <label for="email">Digite seu e-mail:</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          aria-describedby="email-error"
+        />
+        <div class="error-message" id="email-error">
+          {{ getErrorMessage() }}
         </div>
 
-        <div class="recuperar_botao">
-            <button id="botaoRecover" class="buton" onclick="startTimer()">Redefinir Senha</button>
-        </div>
-        <div>
-            <a routerLink="/login" id="voltar_login">Voltar à página de Login</a>
-        </div>
-        <div id="timer">
+        <button class="buton" type="submit" [disabled]="recuperarForm.invalid">
+          ENVIAR CÓDIGO
+        </button>
+      </form>
 
-            <p>Feito!
-                <br>
-                Seu código de recuperação foi enviado para:
-            </p>
-            <p id="emailRecuperacao">(email)</p>
-            Para sua segurança, o código irá expirar em: <span id="countdown">5:00</span>
-        </div>
+      <div *ngIf="submitted">
+        <p>Seu código de recuperação foi enviado para: <strong>{{ emailEnviado }}</strong></p>
+        <p>Para sua segurança, o código irá expirar em: <strong>{{ minutos }}:{{ segundos }}</strong></p>
+      </div>
     </div>
-
+  </main>
 </div>
