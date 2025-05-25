@@ -9,13 +9,13 @@
     text-align: center;
 }
 
-/* Título principal */
+
 .help-section h1 {
     font-size: clamp(1.2rem, 2.5vw, 2rem);
     margin-bottom: 2vh;
 }
 
-/* Caixa de pesquisa */
+
 .search-box {
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
     gap: 2vh;
 }
 
-/* FAQ item */
+
 .faq-item {
     background-color: var(--cor-secundaria);
     padding: 1.5em;

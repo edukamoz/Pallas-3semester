@@ -57,7 +57,7 @@ input.ng-invalid.ng-touched {
 
 .buton {
     width: 15rem;
-    max-width: 100%; /* Responsivo em telas menores */
+    max-width: 100%; 
     height: 3.125rem;
     border: none;
     border-radius: 0.5rem;
@@ -138,16 +138,16 @@ a {
     }
 
     #textoLogin {
-        font-size: 2.25rem; /* Ajuste no tamanho da fonte */
+        font-size: 2.25rem; 
     }
 
     .buton {
-        width: 100%; /* Botões mais largos em telas menores */
-        font-size: 1.6rem; /* Ajuste no tamanho da fonte dos botões */
+        width: 100%; 
+        font-size: 1.6rem; 
     }
 
     form input {
-        font-size: 1.125rem; /* Ajuste no tamanho da fonte dos inputs */
+        font-size: 1.125rem; 
     }
 
     .error-message {
@@ -155,7 +155,7 @@ a {
     }
 
     .login {
-        margin: 0 2.5rem; /* Ajuste no margin para telas menores */
+        margin: 0 2.5rem; 
     }
 }
 
