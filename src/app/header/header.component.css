@@ -64,6 +64,21 @@ li {
   align-items: center;
 }
 
+.btn-ler {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 0.25rem;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.btn-ler:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 @media (max-width: 992px) {
   .navbar-nav {
     flex-direction: column;
