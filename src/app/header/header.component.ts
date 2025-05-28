@@ -6,8 +6,19 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 
+  lerTexto(texto: string) {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(texto);
+      window.speechSynthesis.cancel(); // Cancela fala anterior
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert('Desculpe, seu navegador não suporta leitura por voz.');
+    }
+  }
+
+  // Pode chamar lerTexto ao passar o mouse em cima
 }
