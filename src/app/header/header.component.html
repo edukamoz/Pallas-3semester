@@ -1,60 +1,102 @@
 <header>
-  <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Menu principal">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/" tabindex="0" aria-label="Ir para página inicial"
-         (mouseenter)="lerTexto('Página inicial Athena Dev')">
+      <a class="navbar-brand" routerLink="/">
         <img alt="Athena logo" src="logo.png" />
         ATHENA.DEV
       </a>
-      <button aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação" class="navbar-toggler"
-        data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+      <button
+        aria-controls="navbarNav"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Toggle navigation"
+        class="navbar-toggler"
+        type="button"
+        (click)="toggleMenu()"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav" role="menubar" aria-label="Links de navegação">
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/desafios" tabindex="0" aria-label="Ir para página Desafios" role="menuitem"
-               (mouseenter)="lerTexto('Desafios')">
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNav"
+        [class.show]="isMenuOpen"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/desafios"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Desafios')"
+              (click)="onClickLink('Desafios')"
+            >
               DESAFIOS
             </a>
           </li>
-
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/jogos" tabindex="0" aria-label="Ir para página Jogos" role="menuitem"
-               (mouseenter)="lerTexto('Jogos')">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/jogos"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Jogos')"
+              (click)="onClickLink('Jogos')"
+            >
               JOGOS
             </a>
           </li>
-
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/ranking" tabindex="0" aria-label="Ir para página Ranking" role="menuitem"
-               (mouseenter)="lerTexto('Ranking')">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/ranking"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Ranking')"
+              (click)="onClickLink('Ranking')"
+            >
               RANKING
             </a>
           </li>
-
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/recursos" tabindex="0" aria-label="Ir para página Recursos" role="menuitem"
-               (mouseenter)="lerTexto('Recursos')">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/recursos"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Recursos')"
+              (click)="onClickLink('Recursos')"
+            >
               RECURSOS
             </a>
           </li>
-
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/cadastrar" tabindex="0" aria-label="Ir para página Cadastrar" role="menuitem"
-               (mouseenter)="lerTexto('Cadastrar')">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/cadastrar"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Cadastrar')"
+              (click)="onClickLink('Cadastrar')"
+            >
               CADASTRAR
             </a>
           </li>
-
-          <li class="nav-item" role="none">
-            <a class="nav-link" routerLink="/login" tabindex="0" aria-label="Ir para página Entrar" role="menuitem"
-               (mouseenter)="lerTexto('Entrar')">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/login"
+              tabindex="0"
+              (mouseenter)="onMouseEnter('Entrar')"
+              (click)="onClickLink('Entrar')"
+            >
               ENTRAR
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="icon bi bi-person"
-                viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                class="icon bi bi-person"
+                viewBox="0 0 16 16"
+              >
                 <path
-                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+                />
               </svg>
             </a>
           </li>
