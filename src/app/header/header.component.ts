@@ -9,16 +9,30 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isMenuOpen = false;
 
-  lerTexto(texto: string) {
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  speak(text: string) {
     if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(texto);
-      window.speechSynthesis.cancel(); // Cancela fala anterior
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'pt-BR';
+      utterance.rate = 1;
+
       window.speechSynthesis.speak(utterance);
-    } else {
-      alert('Desculpe, seu navegador não suporta leitura por voz.');
     }
   }
 
-  // Pode chamar lerTexto ao passar o mouse em cima
+  onMouseEnter(text: string) {
+    this.speak(text);
+  }
+
+  onClickLink(text: string) {
+    this.speak(text);
+    // Navegação pelo routerLink segue normalmente
+  }
 }
