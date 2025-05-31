@@ -1,4 +1,3 @@
-<body >
 <main class="erros">
   <h5>Corrija os blocos de código abaixo:</h5>
 
@@ -10,35 +9,43 @@
     <p>{{ errorMessage }}</p>
   </div>
 
-  <div *ngIf="!isLoading && !errorMessage">
+  <div *ngIf="!isLoading && !errorMessage && codeBlocks.length > 0">
     <div *ngFor="let block of codeBlocks; let i = index" class="code-block-container">
       <h6>Bloco {{ i + 1 }}</h6>
       <pre
-      class="code-block"
-      contenteditable="true"
-      [innerText]="block.join('\n')"
-      (input)="onCodeChange(i, $event)"
-    ></pre>
-
+        class="code-block"
+        contenteditable="true"
+        [innerText]="block.join('\n')"
+        (input)="onCodeChange(i, $event)"
+        (blur)="onCodeChange(i, $event)"
+      ></pre>
     </div>
 
     <div class="button-container">
-      <button (click)="checkAnswers()" [disabled]="isLoading || codeBlocks.length === 0">
+      <button 
+        (click)="checkAnswers()" 
+        [disabled]="isLoading || codeBlocks.length === 0"
+        class="check-button"
+      >
         Verificar Respostas
       </button>
-      <button *ngIf="feedback" (click)="resetGame()" class="reset-button">
+      <button 
+        *ngIf="feedback" 
+        (click)="resetGame()" 
+        class="reset-button"
+      >
         Novo Jogo
       </button>
     </div>
 
     <div *ngIf="feedback" class="feedback-container">
       <h5>Resultado:</h5>
-      <p class="score"><strong>Pontuação:</strong> {{ feedback.score }}</p>
+      <p class="score"><strong>Pontuação:</strong> {{ feedback.score }}/7</p>
       
-      <div *ngFor="let bloco of feedback.feedback; let bi = index" class="feedback-block">
-        <h6>Bloco {{ bi + 1 }}</h6>
+      <div class="feedback-block">
+        <h6>Correções:</h6>
         <ul>
-          <li *ngFor="let linha of bloco" class="feedback-line">
+          <li *ngFor="let linha of feedback.feedback" class="feedback-line">
             <span *ngIf="linha.status === 'acertou'" class="correct">
               ✓ {{ linha.line }}
             </span>
@@ -51,5 +58,9 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="!isLoading && !errorMessage && codeBlocks.length === 0" class="no-data">
+    <p>Nenhum bloco de código disponível. Tente recarregar a página.</p>
+    <button (click)="loadCodeBlocks()" class="reload-button">Recarregar</button>
+  </div>
 </main>
-</body>

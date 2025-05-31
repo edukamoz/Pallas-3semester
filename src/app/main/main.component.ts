@@ -8,11 +8,12 @@ import { RecursosComponent } from '../recursos/recursos.component';
 import { RouterOutlet } from '@angular/router';
 import { Challange1CssComponent } from '../challange-1-css/challange-1-css.component';
 import { UsuarioComponent } from "../usuario/usuario.component";
+import { SeteErrosComponent } from '../sete-erros/sete-erros.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterOutlet,UsuarioComponent],
+  imports: [FooterComponent, HeaderComponent, RouterOutlet],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
