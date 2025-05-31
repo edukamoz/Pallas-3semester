@@ -1,147 +1,103 @@
-import { Component, type AfterViewInit, type ElementRef, ViewChild } from "@angular/core"
-import { CommonModule } from "@angular/common"
+import { type ComponentFixture, TestBed } from "@angular/core/testing"
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing"
+import { SeteErrosComponent } from "./sete-erros.component"
 
-interface FeedbackItem {
-  line: string
-  status: "acertou" | "errou"
-  certo?: string
-  error?: string
-}
+describe("SeteErrosComponent", () => {
+  let component: SeteErrosComponent
+  let fixture: ComponentFixture<SeteErrosComponent>
+  let httpMock: HttpTestingController
 
-@Component({
-  selector: "app-sete-erros",
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: "./sete-erros.component.html",
-  styleUrls: ["./sete-erros.component.css"],
-})
-export class SeteErrosComponent implements AfterViewInit {
-[x: string]: any
-resetGame: any
-onCodeChange(_t17: number,$event: Event) {
-throw new Error('Method not implemented.')
-}
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [SeteErrosComponent, HttpClientTestingModule],
+    }).compileComponents()
 
+    fixture = TestBed.createComponent(SeteErrosComponent)
+    component = fixture.componentInstance
+    httpMock = TestBed.inject(HttpTestingController)
+  })
 
-  @ViewChild("codesContainer") codesContainer!: ElementRef
-  @ViewChild("result") result!: ElementRef
+  afterEach(() => {
+    httpMock.verify()
+  })
 
-  codeBlocks: string[][] = []
-  isLoading = true
-  errorMessage: string | null = null
-feedback: any
+  it("should create", () => {
+    expect(component).toBeTruthy()
+  })
 
-  async ngAfterViewInit() {
-    try {
-      // Busca os blocos com erro da API
-      const response = await fetch("http://localhost:3000/api/codes")
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`)
-      }
+  it("should load code blocks on init", () => {
+    const mockData = ['const nome = "Maria"', "console.log(nome);"]
 
-      const blocksWithError: string[][] = await response.json()
-      this.codeBlocks = blocksWithError
-      this.isLoading = false
+    component.ngOnInit()
 
-      // Renderiza blocos na tela após um pequeno delay para garantir que o DOM está pronto
-      setTimeout(() => this.renderCodeBlocks(), 100)
+    const req = httpMock.expectOne("http://localhost:3000/api/codes")
+    expect(req.request.method).toBe("GET")
+    req.flush(mockData)
 
-      // Configura o evento de clique para o botão
-      const checkButton = document.getElementById("check-button")
-      if (checkButton) {
-        checkButton.addEventListener("click", () => this.checkAnswers())
-      }
-    } catch (error) {
-      console.error("Failed to load code blocks:", error)
-      this.errorMessage = "Falha ao carregar os blocos de código. Verifique se o servidor está rodando."
-      this.isLoading = false
+    expect(component.codeBlocks).toEqual([mockData])
+    expect(component.isLoading).toBeFalse()
+  })
+
+  it("should handle error when loading code blocks", () => {
+    component.ngOnInit()
+
+    const req = httpMock.expectOne("http://localhost:3000/api/codes")
+    req.error(new ErrorEvent("Network error"))
+
+    expect(component.errorMessage).toContain("Erro ao carregar códigos")
+    expect(component.isLoading).toBeFalse()
+  })
+
+  it("should update code block on change", () => {
+    component.codeBlocks = [["linha1", "linha2"]]
+
+    const mockEvent = {
+      target: {
+        innerText: "nova linha1\nnova linha2",
+      },
+    } as any
+
+    component.onCodeChange(0, mockEvent)
+
+    expect(component.codeBlocks[0]).toEqual(["nova linha1", "nova linha2"])
+  })
+
+  it("should check answers", () => {
+    component.codeBlocks = [['const nome = "Maria"', "console.log(nome);"]]
+
+    const mockResponse = {
+      score: 5,
+      feedback: [
+        { line: 'const nome = "Maria"', status: "acertou" as const },
+        { line: "console.log(nome);", status: "errou" as const, certo: 'console.log("Olá, Maria!");' },
+      ],
     }
-  }
 
-  renderCodeBlocks() {
-    const container = document.getElementById("codes-container")
-    if (!container || !this.codeBlocks.length) {
-      console.error("Container not found or no code blocks available")
-      return
-    }
+    component.checkAnswers()
 
-    // Limpa o container antes de adicionar novos blocos
-    container.innerHTML = ""
-
-    // Renderiza cada bloco de código
-    this.codeBlocks.forEach((block, index) => {
-      const codeBlock = document.createElement("pre")
-      codeBlock.contentEditable = "true"
-      codeBlock.classList.add("code-block")
-      codeBlock.dataset["index"] = index.toString()
-      codeBlock.textContent = block.join("\n")
-
-      // Adiciona estilos para tornar o bloco mais visível
-      codeBlock.style.backgroundColor = "#1e293b"
-      codeBlock.style.padding = "15px"
-      codeBlock.style.borderRadius = "8px"
-      codeBlock.style.marginBottom = "20px"
-      codeBlock.style.color = "#f8fafc"
-      codeBlock.style.fontFamily = "monospace"
-      codeBlock.style.whiteSpace = "pre-wrap"
-      codeBlock.style.border = "1px solid #334155"
-
-      container.appendChild(codeBlock)
-
-      // Log para debug
-      console.log(`Rendered code block ${index}:`, block)
+    const req = httpMock.expectOne("http://localhost:3000/api/correct")
+    expect(req.request.method).toBe("POST")
+    expect(req.request.body).toEqual({
+      userAnswers: ['const nome = "Maria"', "console.log(nome);"],
     })
-  }
+    req.flush(mockResponse)
 
-  async checkAnswers() {
-    try {
-      const blocks = Array.from(document.querySelectorAll(".code-block")) as HTMLElement[]
-      if (!blocks.length) {
-        console.error("No code blocks found")
-        return
-      }
+    expect(component.feedback).toEqual(mockResponse)
+  })
 
-      const userAnswers = blocks.map((block) =>
-        (block.textContent || "")
-          .trim()
-          .split("\n")
-          .map((l) => l.trim()),
-      )
+  it("should reset game", () => {
+    component.feedback = { score: 5, feedback: [] }
+    component.errorMessage = "Algum erro"
 
-      const res = await fetch("http://localhost:3000/api/correct", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userAnswers }),
-      })
+    const mockData = ["nova linha"]
 
-      if (!res.ok) {
-        throw new Error(`API error: ${res.status}`)
-      }
+    component.resetGame()
 
-      const data = await res.json()
-      const resultElement = document.getElementById("result")
+    const req = httpMock.expectOne("http://localhost:3000/api/codes")
+    req.flush(mockData)
 
-      if (resultElement) {
-        let feedbackHTML = `<p><strong>Sua pontuação: ${data.score}</strong></p>`
-        data.feedback.forEach((blockFeedback: FeedbackItem[], index: number) => {
-          feedbackHTML += `<h4>Bloco ${index + 1}</h4><ul>`
-          blockFeedback.forEach((item: FeedbackItem) => {
-            if (item.status === "acertou") {
-              feedbackHTML += `<li style="color: lightgreen;">✔️ ${item.line}</li>`
-            } else {
-              feedbackHTML += `<li style="color: red;">❌ ${item.line} (Correto: ${item.certo})</li>`
-            }
-          })
-          feedbackHTML += "</ul>"
-        })
-        resultElement.innerHTML = feedbackHTML
-      }
-    } catch (error) {
-      console.error("Error checking answers:", error)
-      const resultElement = document.getElementById("result")
-      if (resultElement) {
-        resultElement.innerHTML = '<p style="color: red;">Erro ao verificar respostas. Tente novamente.</p>'
-      }
-    }
-  }
-}
+    expect(component.feedback).toBeNull()
+    expect(component.errorMessage).toBeNull()
+    expect(component.codeBlocks).toEqual([mockData])
+  })
+})
