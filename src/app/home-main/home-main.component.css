@@ -158,21 +158,24 @@
 .mvv-section {
     background-color: rgba(1, 6, 38, 0.9);
     color: #fff;
-    padding: 40px 6rem 80px;
+    padding: 40px 4rem 80px;
     font-family: "Graduate", Courier, monospace;
     display: flex;
-    justify-content: space-around;
-    gap: 40px;
-    flex-wrap: nowrap;       /* força a linha única */
-    overflow-x: auto;        /* permite scroll horizontal em telas pequenas */
-    margin-top: 60px;        /* espaço maior em relação à equipe */
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 6rem; /* reduz o espaço entre os itens */
+    flex-wrap: wrap; /* permite quebra de linha */
+    margin-top: 60px;
+    box-sizing: border-box;
+    max-width: 100%; /* garante não ultrapassar largura */
+    overflow-x: hidden; /* remove rolagem horizontal */
 }
 
 .mvv-item {
     background-color: #011333;
     padding: 20px;
     border-radius: 8px;
-    flex: 0 0 300px;         /* largura fixa para cada item */
+    flex: 1 1 280px; /* flexível, min 280px, cresce para preencher */
+    max-width: 320px; /* limita o máximo de largura */
     box-sizing: border-box;
     text-align: left;
 }
@@ -203,6 +206,29 @@
     }
     
     .mvv-section {
-        padding-bottom: 60px;
+        padding: 30px 2rem 60px;
+        gap: 15px;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .mvv-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-custom {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .carousel-item p {
+        font-size: 0.9rem;
     }
 }
