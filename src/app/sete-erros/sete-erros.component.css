@@ -6,10 +6,6 @@
   --cor-acerto: #4caf50;
 }
 
-body{
-  background-color: #010626;
-}
-
 .erros {
   padding: 80px;
   margin-top: 100px;
@@ -18,12 +14,14 @@ body{
   white-space: pre-wrap;
   font-family: monospace;
   background-color: var(--cor-secundaria);
+  min-height: 400px;
 }
 
 h5 {
   font-size: 2em;
   margin-bottom: 20px;
   color: white;
+  text-align: center;
 }
 
 h6 {
@@ -49,6 +47,24 @@ h6 {
   margin-bottom: 20px;
   border: 1px solid var(--cor-erro);
   color: white;
+  text-align: center;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: white;
+}
+
+.reload-button {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 15px;
 }
 
 .code-block-container {
@@ -61,12 +77,21 @@ h6 {
   border-radius: 8px;
   margin-bottom: 10px;
   color: #f8fafc;
-  font-family: monospace;
+  font-family: "Courier New", monospace;
   white-space: pre-wrap;
   border: 1px solid #334155;
   min-height: 100px;
   width: 100%;
   overflow: auto;
+  line-height: 1.4;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.code-block:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 2px rgba(124, 5, 242, 0.2);
 }
 
 .button-container {
@@ -74,26 +99,30 @@ h6 {
   gap: 15px;
   margin: 20px 0;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
   background-color: var(--cor-primaria);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background-color: #5e04b6;
+  transform: translateY(-2px);
 }
 
 button:disabled {
   background-color: #444;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .reset-button {
@@ -104,17 +133,26 @@ button:disabled {
   background-color: #34495e;
 }
 
+.check-button {
+  background-color: var(--cor-primaria);
+}
+
 .feedback-container {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  border-radius: 12px;
   margin-top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .score {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 20px;
   color: white;
+  text-align: center;
+  background-color: rgba(124, 5, 242, 0.2);
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .feedback-block {
@@ -123,75 +161,104 @@ button:disabled {
 
 .feedback-line {
   list-style-type: none;
-  margin-bottom: 5px;
-  font-family: monospace;
+  margin-bottom: 8px;
+  font-family: "Courier New", monospace;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .correct {
   color: var(--cor-acerto);
+  font-weight: 500;
 }
 
 .incorrect {
   color: var(--cor-erro);
+  font-weight: 500;
 }
 
 .correct-answer {
   color: #f8fafc;
-  opacity: 0.8;
+  opacity: 0.9;
   font-style: italic;
   margin-left: 10px;
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 ul {
-  padding-left: 20px;
+  padding-left: 0;
+  margin: 0;
 }
 
 p {
   color: white;
 }
 
-/* RESPONSIVIDADE - para telas de notebook e macs */
+/* RESPONSIVIDADE */
 @media (max-width: 1600px) {
   .erros {
-      padding: 60px;
-      margin-top: 80px;
-      margin-bottom: 80px;
+    padding: 60px;
+    margin-top: 80px;
+    margin-bottom: 80px;
   }
 
   h5 {
-      font-size: 1.8em;
+    font-size: 1.8em;
   }
 
   h6 {
-      font-size: 1.1em;
+    font-size: 1.1em;
   }
 
   button {
-      font-size: 0.95em;
+    font-size: 0.95em;
   }
 }
 
 @media (max-width: 1366px) {
   .erros {
-      padding: 40px;
-      margin-top: 60px;
-      margin-bottom: 60px;
+    padding: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
 
   h5 {
-      font-size: 1.6em;
+    font-size: 1.6em;
   }
 
   h6 {
-      font-size: 1em;
+    font-size: 1em;
   }
 
   .button-container {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   button {
-      width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .erros {
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  h5 {
+    font-size: 1.4em;
+  }
+
+  .code-block {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .feedback-container {
+    padding: 15px;
   }
 }
