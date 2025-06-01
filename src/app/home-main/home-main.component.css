@@ -1,107 +1,154 @@
 /* ------------ Home main ------------ */
 
 .home-main {
-    background-color: #010626;
-    color: #fff;
-    font-family: "Graduate", Courier, monospace;
-    text-align: center;
+  background-color: #010626;
+  color: #fff;
+  font-family: "Graduate", Courier, monospace;
+  text-align: center;
+  padding: 2vh 2vw;
 }
 
 .highlight {
-    color: #00aaff;
+  color: #00aaff;
 }
 
 .btn-custom {
-    background-color: #8000ff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    margin-top: 20px;
+  background-color: #8000ff;
+  color: #fff;
+  border: none;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  font-size: 1.2rem;
+  border-radius: 0.3125rem; /* 5px */
+  margin-top: 1.25rem; /* 20px */
+  cursor: pointer;
 }
 
 .btn-custom:hover {
-    background-color: #6600cc;
+  background-color: #6600cc;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2rem;
 }
 
 .text-container {
-    margin-right: 50px;
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.image-container {
+  flex: 1 1 300px;
+  max-width: 500px;
 }
 
 .image-container img {
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-    border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* ----------- Sobre nós ------------- */
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
 }
 
 .image-container {
-    position: relative;
-    max-width: 50%;
+  position: relative;
+  flex: 1 1 300px;
+  max-width: 500px;
 }
 
 .text-container {
-    max-width: 50%;
-    padding-left: 20px;
+  flex: 1 1 300px;
+  max-width: 600px;
+  padding-left: 1.25rem; /* 20px */
 }
 
 .text-container p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
 }
 
 .title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.25rem; /* 20px */
 }
 
 /* ----------- Equipe Carousel ----------- */
 
 .equipe-section {
-    background-color: #010626;
-    color: #fff;
-    padding: 40px 0;
+  background-color: #010626;
+  color: #fff;
+  padding: 2.5rem 1rem;
 }
 
 .equipe-section img {
-    object-fit: cover;
-    border: 4px solid #00aaff;
+  object-fit: cover;
+  border: 4px solid #00aaff;
 }
 
 .carousel-item h5 {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    color: #00aaff;
+  font-size: 1.5rem;
+  margin-top: 0.625rem;
+  color: #00aaff;
 }
 
 .carousel-item p {
-    font-size: 1rem;
-    margin: 0;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 1rem;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #00aaff;
-    padding: 10px;
-    border-radius: 50%;
+  background-color: #00aaff;
+  padding: 0.625rem;
+  border-radius: 50%;
+}
+
+/* ----------- Responsividade ----------- */
+
+@media (max-width: 1024px) {
+  .text-container, .image-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .container,
+  .content {
+    flex-direction: column;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-custom {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-item p {
+    font-size: 0.9rem;
+  }
 }
