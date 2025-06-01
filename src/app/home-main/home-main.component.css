@@ -152,3 +152,57 @@
     font-size: 0.9rem;
   }
 }
+
+/* ----------- Missão, Visão e Valores ----------- */
+
+.mvv-section {
+    background-color: rgba(1, 6, 38, 0.9);
+    color: #fff;
+    padding: 40px 6rem 80px;
+    font-family: "Graduate", Courier, monospace;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    flex-wrap: nowrap;       /* força a linha única */
+    overflow-x: auto;        /* permite scroll horizontal em telas pequenas */
+    margin-top: 60px;        /* espaço maior em relação à equipe */
+}
+
+.mvv-item {
+    background-color: #011333;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 0 0 300px;         /* largura fixa para cada item */
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.mvv-item h3 {
+    color: #00aaff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.mvv-item p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* ----------- Responsividade ----------- */
+
+@media (max-width: 1024px) {
+    .content, .container {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .text-container, .image-container {
+        max-width: 100%;
+        margin: 0 auto 30px;
+        padding: 0 20px;
+    }
+    
+    .mvv-section {
+        padding-bottom: 60px;
+    }
+}
