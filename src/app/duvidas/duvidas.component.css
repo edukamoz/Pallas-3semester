@@ -2,19 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .help-section {
-    margin-top: 15vh;
+    margin-top: calc(6vh + 60px);
     background-color: var(--cor-de-fundo);
-    font-family: 'Roboto', serif;
-    padding: 5vw;
+    font-family: 'Roboto', sans-serif;
+    padding: 4vw 6vw;
     text-align: center;
+    box-sizing: border-box;
 }
-
 
 .help-section h1 {
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     margin-bottom: 2vh;
 }
-
 
 .search-box {
     display: flex;
@@ -22,13 +21,14 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1em;
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .search-box input {
     padding: 0.6em;
-    font-size: 0.9em;
+    font-size: 1em;
     width: 70vw;
     max-width: 40em;
     border: none;
@@ -40,25 +40,28 @@
 
 .search-box button {
     padding: 0.6em 1em;
-    font-size: 0.9em;
+    font-size: 1em;
     background-color: #6c5ce7;
     border: none;
     border-radius: 0 0.5em 0.5em 0;
     cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
 }
 
 .search-box button:hover {
     background-color: #81ecec;
+    color: black;
 }
-
 
 .faq {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
 }
-
 
 .faq-item {
     background-color: var(--cor-secundaria);
@@ -67,14 +70,35 @@
     max-width: 50em;
     border-radius: 0.8em;
     box-sizing: border-box;
+    text-align: left;
 }
 
 .faq-item h3 {
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 0.8em;
 }
 
 .faq-item p {
-    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
-    font-family: 'Roboto';
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+/* Melhorias específicas para monitores grandes */
+@media (min-width: 1200px) {
+    .help-section {
+        padding: 3vw 15vw;
+    }
+
+    .search-box {
+        gap: 1.5em;
+    }
+
+    .faq {
+        gap: 2.5vh;
+    }
+
+    .faq-item {
+        padding: 2em;
+    }
 }
