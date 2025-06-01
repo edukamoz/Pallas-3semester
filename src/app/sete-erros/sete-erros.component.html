@@ -15,9 +15,13 @@
       <pre
         class="code-block"
         contenteditable="true"
-        [innerText]="block.join('\n')"
+        [textContent]="block.join('\n')"
         (input)="onCodeChange(i, $event)"
-        (blur)="onCodeChange(i, $event)"
+        (keydown)="onKeyDown($event)"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
       ></pre>
     </div>
 

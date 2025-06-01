@@ -28,6 +28,7 @@ export class SeteErrosComponent implements OnInit {
   feedback: FeedbackResponse | null = null
   apiUrl = "http://localhost:3000"
 
+  // Usando a função inject para injetar o HttpClient
   private http = inject(HttpClient)
 
   ngOnInit(): void {
@@ -42,7 +43,7 @@ export class SeteErrosComponent implements OnInit {
     this.http.get<string[]>(`${this.apiUrl}/api/codes`).subscribe({
       next: (data) => {
         console.log("Dados recebidos da API:", data)
-        // Converte o array simples em array de arrays para manter compatibilidade
+        // A API retorna um array simples, convertemos para array de arrays
         this.codeBlocks = [data]
         this.isLoading = false
       },
@@ -56,12 +57,29 @@ export class SeteErrosComponent implements OnInit {
 
   onCodeChange(index: number, event: Event): void {
     const target = event.target as HTMLElement
-    if (!target.innerText) return
+    if (!target.textContent) return
 
-    const updatedCode = target.innerText.split("\n").map((line) => line.trimEnd()) // Remove apenas espaços do final da linha
-
+    // Permite edição livre mantendo espaços e quebras de linha
+    const updatedCode = target.textContent.split("\n")
     this.codeBlocks[index] = updatedCode
     console.log(`Bloco ${index} atualizado:`, this.codeBlocks[index])
+  }
+
+  onKeyDown(event: KeyboardEvent): void {
+    // Permite Tab para indentação
+    if (event.key === "Tab") {
+      event.preventDefault()
+      const selection = window.getSelection()
+      if (selection && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0)
+        const tabNode = document.createTextNode("  ") // 2 espaços
+        range.insertNode(tabNode)
+        range.setStartAfter(tabNode)
+        range.setEndAfter(tabNode)
+        selection.removeAllRanges()
+        selection.addRange(range)
+      }
+    }
   }
 
   checkAnswers(): void {
@@ -75,7 +93,7 @@ export class SeteErrosComponent implements OnInit {
 
     this.http
       .post<FeedbackResponse>(`${this.apiUrl}/api/correct`, {
-        userAnswers: this.codeBlocks[0], // Envia apenas o primeiro bloco (único bloco)
+        userAnswers: this.codeBlocks[0], // Envia apenas o primeiro bloco
       })
       .subscribe({
         next: (res) => {
@@ -85,7 +103,7 @@ export class SeteErrosComponent implements OnInit {
         },
         error: (error) => {
           console.error("Erro ao verificar respostas:", error)
-          this.errorMessage = "Erro ao verificar as respostas. Tente novamente."
+          this.errorMessage = "Erro ao verificar as respostas."
         },
       })
   }

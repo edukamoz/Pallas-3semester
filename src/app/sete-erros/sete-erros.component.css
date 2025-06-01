@@ -80,18 +80,34 @@ h6 {
   font-family: "Courier New", monospace;
   white-space: pre-wrap;
   border: 1px solid #334155;
-  min-height: 100px;
+  min-height: 120px;
   width: 100%;
   overflow: auto;
-  line-height: 1.4;
+  line-height: 1.6;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s ease;
+  tab-size: 2;
+  -moz-tab-size: 2;
 }
 
 .code-block:focus {
   border-color: var(--cor-primaria);
   box-shadow: 0 0 0 2px rgba(124, 5, 242, 0.2);
+  caret-color: #f8fafc;
+}
+
+.code-block:hover {
+  border-color: #475569;
+}
+
+/* Estilo para seleção de texto */
+.code-block::selection {
+  background-color: rgba(124, 5, 242, 0.3);
+}
+
+.code-block::-moz-selection {
+  background-color: rgba(124, 5, 242, 0.3);
 }
 
 .button-container {

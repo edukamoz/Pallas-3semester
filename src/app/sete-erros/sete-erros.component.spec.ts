@@ -53,7 +53,7 @@ describe("SeteErrosComponent", () => {
 
     const mockEvent = {
       target: {
-        innerText: "nova linha1\nnova linha2",
+        textContent: "nova linha1\nnova linha2",
       },
     } as any
 
