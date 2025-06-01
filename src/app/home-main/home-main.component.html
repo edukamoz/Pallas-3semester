@@ -1,10 +1,10 @@
 <div class="home-main">
   <div class="container">
     <div class="text-container">
-      <h1>TORNE-SE UM</h1>
-      <h1 class="highlight">GUERREIRO</h1>
-      <h1>DA TECNOLOGIA</h1>
-      <button class="btn btn-custom">COMEÇAR AGORA</button>
+      <h1 (mouseenter)="speak('Torne-se um')" (click)="speak('Torne-se um')">TORNE-SE UM</h1>
+      <h1 class="highlight" (mouseenter)="speak('Guerreiro')" (click)="speak('Guerreiro')">GUERREIRO</h1>
+      <h1 (mouseenter)="speak('Da tecnologia')" (click)="speak('Da tecnologia')">DA TECNOLOGIA</h1>
+      <button class="btn btn-custom" (mouseenter)="speak('Começar agora')" (click)="speak('Começar agora')">COMEÇAR AGORA</button>
     </div>
     <div class="image-container">
       <img alt="Athena segurando um escudo e lança" height="600" src="home-menu.svg" width="600" />
@@ -16,11 +16,11 @@
       <img alt="Fatec Votorantim building with a ramp and palm trees in front" height="400" src="sobre_nos.png" width="600" />
     </div>
     <div class="text-container">
-      <div class="title">SOBRE NÓS</div>
-      <p>
+      <div class="title" (mouseenter)="speak('Sobre nós')" (click)="speak('Sobre nós')">SOBRE NÓS</div>
+      <p (mouseenter)="speak('A startup Pallas é um projeto feito na faculdade de tecnologia Fatec de Votorantim')" (click)="speak('A startup Pallas é um projeto feito na faculdade de tecnologia Fatec de Votorantim')">
         A startup PALLAS é um projeto feito na faculdade de tecnologia (FATEC) de Votorantim-SP, o site Athena.dev visa ajudar aqueles que desejam aprender ou aplicar seus conhecimentos referente a front-end, basicamente fornecendo protótipos de páginas para que o usuário programe e receba uma pontuação e avaliação de acordo com o código feito.
       </p>
-      <p>
+      <p (mouseenter)="speak('Ao introduzir formas criativas e divertidas de desafiar nossos usuários para que possam evoluir')" (click)="speak('Ao introduzir formas criativas e divertidas de desafiar nossos usuários para que possam evoluir')">
         Ao introduzir formas criativas e divertidas de desafiar nossos usuários para que possam evoluir em seu desempenho e conhecimento, esperamos trazer cada vez mais pessoas para esta área tecnológica, disseminando os conhecimentos numa comunidade interativa e com o objetivo de crescer em coletivo.
       </p>
     </div>
@@ -28,40 +28,57 @@
 
   <!-- Carrossel da Equipe -->
   <div class="equipe-section py-5">
-    <h2 class="title">NOSSA EQUIPE</h2>
+    <h2 class="title" (mouseenter)="speak('Nossa equipe')" (click)="speak('Nossa equipe')">NOSSA EQUIPE</h2>
     <div id="carouselEquipe" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active text-center">
-          <img src="/edu.jpg" class="rounded-circle mb-3" alt="Membro 1" width="150" height="150">
-          <h5>Eduardo Kamo</h5>
-          <p>Diretor Executivo (CEO) Guiando a empresa para um futuro mais facil e incrivel!</p>
+          <img src="/edu.jpg" class="rounded-circle mb-3" alt="Membro 1" width="150" height="150"
+            (mouseenter)="speak('Eduardo Kamo, Diretor Executivo CEO')" (click)="speak('Eduardo Kamo, Diretor Executivo CEO')" />
+          <h5 (mouseenter)="speak('Eduardo Kamo')" (click)="speak('Eduardo Kamo')">Eduardo Kamo</h5>
+          <p (mouseenter)="speak('Diretor Executivo, guiando a empresa para um futuro mais fácil e incrível')" (click)="speak('Diretor Executivo, guiando a empresa para um futuro mais fácil e incrível')">
+            Diretor Executivo (CEO) Guiando a empresa para um futuro mais facil e incrivel!
+          </p>
         </div>
         <div class="carousel-item text-center">
-          <img src="/iago.jpg" class="rounded-circle mb-3" alt="Membro 2" width="150" height="150">
-          <h5>Iago Yuri</h5>
-          <p>Diretor de TI (CIO) Atuando no Desenvolvimento de novas telas de aplicação</p>
+          <img src="/iago.jpg" class="rounded-circle mb-3" alt="Membro 2" width="150" height="150"
+            (mouseenter)="speak('Iago Yuri, Diretor de TI CIO')" (click)="speak('Iago Yuri, Diretor de TI CIO')" />
+          <h5 (mouseenter)="speak('Iago Yuri')" (click)="speak('Iago Yuri')">Iago Yuri</h5>
+          <p (mouseenter)="speak('Diretor de TI, atuando no desenvolvimento de novas telas de aplicação')" (click)="speak('Diretor de TI, atuando no desenvolvimento de novas telas de aplicação')">
+            Diretor de TI (CIO) Atuando no Desenvolvimento de novas telas de aplicação
+          </p>
         </div>
         <div class="carousel-item text-center">
-          <img src="/lucas.jfif" class="rounded-circle mb-3" alt="Membro 3" width="150" height="150">
-          <h5>Lucas Vinicios</h5>
-          <p>Analista de T.I Atuando dando suporte Para o s</p>
+          <img src="/lucas.jfif" class="rounded-circle mb-3" alt="Membro 3" width="150" height="150"
+            (mouseenter)="speak('Lucas Vinicios, Analista de TI')" (click)="speak('Lucas Vinicios, Analista de TI')" />
+          <h5 (mouseenter)="speak('Lucas Vinicios')" (click)="speak('Lucas Vinicios')">Lucas Vinicios</h5>
+          <p (mouseenter)="speak('Analista de TI, atuando dando suporte')" (click)="speak('Analista de TI, atuando dando suporte')">
+            Analista de T.I Atuando dando suporte Para o s
+          </p>
         </div>
         <div class="carousel-item text-center">
-          <img src="/matheus.jpg" class="rounded-circle mb-3" alt="Membro 4" width="150" height="150">
-          <h5>Matheus Nery</h5>
-          <p>Diretor de Marketing Digital Atuando para engajar a Midia visual da empresa</p>
+          <img src="/matheus.jpg" class="rounded-circle mb-3" alt="Membro 4" width="150" height="150"
+            (mouseenter)="speak('Matheus Nery, Diretor de Marketing Digital')" (click)="speak('Matheus Nery, Diretor de Marketing Digital')" />
+          <h5 (mouseenter)="speak('Matheus Nery')" (click)="speak('Matheus Nery')">Matheus Nery</h5>
+          <p (mouseenter)="speak('Diretor de Marketing Digital, atuando para engajar a mídia visual da empresa')" (click)="speak('Diretor de Marketing Digital, atuando para engajar a mídia visual da empresa')">
+            Diretor de Marketing Digital Atuando para engajar a Midia visual da empresa
+          </p>
         </div>
         <div class="carousel-item text-center">
-          <img src="/nelson.jpg" class="rounded-circle mb-3" alt="Membro 5" width="150" height="150">
-          <h5>Nelson de Oliveira</h5>
-          <p>Diretor de Operações (COO) Atuando na soluções de conflitos E processos</p>
+          <img src="/nelson.jpg" class="rounded-circle mb-3" alt="Membro 5" width="150" height="150"
+            (mouseenter)="speak('Nelson de Oliveira, Diretor de Operações COO')" (click)="speak('Nelson de Oliveira, Diretor de Operações COO')" />
+          <h5 (mouseenter)="speak('Nelson de Oliveira')" (click)="speak('Nelson de Oliveira')">Nelson de Oliveira</h5>
+          <p (mouseenter)="speak('Diretor de Operações, atuando na soluções de conflitos e processos')" (click)="speak('Diretor de Operações, atuando na soluções de conflitos e processos')">
+            Diretor de Operações (COO) Atuando na soluções de conflitos E processos
+          </p>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselEquipe" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselEquipe" data-bs-slide="prev"
+        (mouseenter)="speak('Anterior')" (click)="speak('Anterior')">
         <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
         <span class="visually-hidden">Anterior</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselEquipe" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselEquipe" data-bs-slide="next"
+        (mouseenter)="speak('Próximo')" (click)="speak('Próximo')">
         <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
         <span class="visually-hidden">Próximo</span>
       </button>
@@ -71,16 +88,23 @@
   <!-- Missão, Visão e Valores -->
   <div class="mvv-section">
     <div class="mvv-item">
-      <h3>Missão</h3>
-      <p>Qualificar e capacitar trabalhadores e estudantes de front-end experiências gratificantes e próximo do mundo profissional real.</p>
+      <h3 (mouseenter)="speak('Missão')" (click)="speak('Missão')">Missão</h3>
+      <p (mouseenter)="speak('Qualificar e capacitar trabalhadores e estudantes de front-end experiências gratificantes e próximo do mundo profissional real.')" 
+         (click)="speak('Qualificar e capacitar trabalhadores e estudantes de front-end experiências gratificantes e próximo do mundo profissional real.')">
+        Qualificar e capacitar trabalhadores e estudantes de front-end experiências gratificantes e próximo do mundo profissional real.
+      </p>
     </div>
     <div class="mvv-item">
-      <h3>Visão</h3>
-      <p>Ser referência para sites de aprendizado e capacitação front-end.</p>
+      <h3 (mouseenter)="speak('Visão')" (click)="speak('Visão')">Visão</h3>
+      <p (mouseenter)="speak('Ser referência para sites de aprendizado e capacitação front-end.')" (click)="speak('Ser referência para sites de aprendizado e capacitação front-end.')">
+        Ser referência para sites de aprendizado e capacitação front-end.
+      </p>
     </div>
     <div class="mvv-item">
-      <h3>Valores</h3>
-      <p>Inovação, Praticidade, Democratização de informação, Criatividade.</p>
+      <h3 (mouseenter)="speak('Valores')" (click)="speak('Valores')">Valores</h3>
+      <p (mouseenter)="speak('Inovação, praticidade, democratização de informação, criatividade.')" (click)="speak('Inovação, praticidade, democratização de informação, criatividade.')">
+        Inovação, Praticidade, Democratização de informação, Criatividade.
+      </p>
     </div>
   </div>
 </div>
