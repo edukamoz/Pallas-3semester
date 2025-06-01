@@ -34,6 +34,7 @@
   align-items: center;
   min-height: 100vh;
   gap: 2rem;
+  padding-bottom: 1rem; /* diminui espaço embaixo do topo */
 }
 
 .text-container {
@@ -59,9 +60,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
+  min-height: auto; /* para evitar muito espaço */
+  padding: 1.5rem 2rem; /* reduz padding para diminuir espaço */
   gap: 2rem;
+  margin-top: 2rem; /* diminui espaço entre container e sobre nós */
 }
 
 .image-container {
@@ -94,6 +96,7 @@
   background-color: #010626;
   color: #fff;
   padding: 2.5rem 1rem;
+  margin-top: 6rem;
 }
 
 .equipe-section img {
@@ -156,79 +159,80 @@
 /* ----------- Missão, Visão e Valores ----------- */
 
 .mvv-section {
-    background-color: rgba(1, 6, 38, 0.9);
-    color: #fff;
-    padding: 40px 4rem 80px;
-    font-family: "Graduate", Courier, monospace;
-    display: flex;
-    justify-content: center; /* centraliza horizontalmente */
-    gap: 6rem; /* reduz o espaço entre os itens */
-    flex-wrap: wrap; /* permite quebra de linha */
-    margin-top: 60px;
-    box-sizing: border-box;
-    max-width: 100%; /* garante não ultrapassar largura */
-    overflow-x: hidden; /* remove rolagem horizontal */
+  background-color: rgba(1, 6, 38, 0.9);
+  color: #fff;
+  padding: 40px 4rem 80px;
+  font-family: "Graduate", Courier, monospace;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 6rem; /* reduz o espaço entre os itens */
+  flex-wrap: wrap; /* permite quebra de linha */
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  box-sizing: border-box;
+  max-width: 100%; /* garante não ultrapassar largura */
+  overflow-x: hidden; /* remove rolagem horizontal */
 }
 
 .mvv-item {
-    background-color: #011333;
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1 1 280px; /* flexível, min 280px, cresce para preencher */
-    max-width: 320px; /* limita o máximo de largura */
-    box-sizing: border-box;
-    text-align: left;
+  background-color: #011333;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1 1 280px; /* flexível, min 280px, cresce para preencher */
+  max-width: 320px; /* limita o máximo de largura */
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .mvv-item h3 {
-    color: #00aaff;
-    margin-bottom: 15px;
-    font-weight: bold;
+  color: #00aaff;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .mvv-item p {
-    font-size: 1.1rem;
-    line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 /* ----------- Responsividade ----------- */
 
 @media (max-width: 1024px) {
-    .content, .container {
-        flex-wrap: wrap;
-        height: auto;
-    }
-    
-    .text-container, .image-container {
-        max-width: 100%;
-        margin: 0 auto 30px;
-        padding: 0 20px;
-    }
-    
-    .mvv-section {
-        padding: 30px 2rem 60px;
-        gap: 15px;
-        justify-content: center;
-        overflow-x: hidden;
-    }
+  .content, .container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  
+  .text-container, .image-container {
+    max-width: 100%;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+  }
+  
+  .mvv-section {
+    padding: 30px 2rem 60px;
+    gap: 15px;
+    justify-content: center;
+    overflow-x: hidden;
+  }
 
-    .mvv-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
+  .mvv-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
-    .btn-custom {
-        width: 100%;
-        font-size: 1rem;
-    }
+  .btn-custom {
+    width: 100%;
+    font-size: 1rem;
+  }
 
-    .title {
-        font-size: 1.5rem;
-    }
+  .title {
+    font-size: 1.5rem;
+  }
 
-    .carousel-item p {
-        font-size: 0.9rem;
-    }
+  .carousel-item p {
+    font-size: 0.9rem;
+  }
 }
