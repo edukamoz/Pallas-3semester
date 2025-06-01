@@ -1,159 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /*-------------------------------Ranking------------------------------*/
 
-.circle-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid black;
-}
-
-#primeiroColocado {
-    color: gold;
-    text-shadow: 2px 2px black;
-    font-weight: bold;
-    font-size: larger;
-    -webkit-text-stroke-width: 10%;
-    -webkit-text-stroke-color: black;
-}
-
-#segundoColocado {
-    color: silver;
-    text-shadow: 2px 2px black;
-    font-weight: bold;
-    font-size: larger;
-    -webkit-text-stroke-width: 10%;
-    -webkit-text-stroke-color: black;
-}
-
-#terceiroColocado {
-    color: #CD7F32;
-    text-shadow: 2px 2px black;
-    font-weight: bold;
-    font-size: larger;
-    -webkit-text-stroke-width: 10%;
-    -webkit-text-stroke-color: black;
-}
-
-.table-ranking {
-    width: 100%;
-    /* Tabela ocupa 100% da largura da página */
-    border-collapse: collapse;
-    /* Remove espaços extras nas bordas */
-    table-layout: fixed;
-    /* Torna o layout fixo para respeitar larguras */
-}
-
-/* Define larguras específicas para cada coluna */
-.table-ranking th:nth-child(1),
-/* Colocação */
-.table-ranking td:nth-child(1) {
-    width: 10%;
-    /* Pequeno espaço para colocação */
-    text-align: center;
-    /* Centraliza o texto */
-}
-
-.table-ranking th:nth-child(2),
-/* Foto */
-.table-ranking td:nth-child(2) {
-    width: 15%;
-    /* Espaço moderado para a foto */
-    text-align: center;
-    /* Centraliza o conteúdo */
-}
-
-.table-ranking th:nth-child(3),
-/* Nome de Usuário */
-.table-ranking td:nth-child(3) {
-    width: 50%;
-    /* Maior espaço para o nome */
-    text-align: left;
-    /* Alinha à esquerda */
-    padding-left: 10px;
-    /* Espaçamento interno */
-}
-
-.table-ranking th:nth-child(4),
-/* Pontos */
-.table-ranking td:nth-child(4) {
-    width: 25%;
-    /* Espaço moderado para pontuação */
-    text-align: center;
-    /* Centraliza o texto */
-}
-
-/* Estilização adicional */
-.table-ranking th {
-    background-color: #7C05F2;
-    /* Cor de fundo para o cabeçalho */
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px;
-}
-
-.table-ranking td {
-    padding: 8px;
-    /* Espaçamento interno */
-    border: 1px solid #ddd;
-    /* Bordas finas */
-}
-
-.table-ranking tr:nth-child(even) {
-    background-color: #021859;
-    /* Alterna cor das linhas */
+.alinhar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #010626;
+  min-height: 100vh;
+  padding: 2vh 2vw;
 }
 
 .ranking {
-    background-color: var(--cor-secundaria);
+  background-color: #021859;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 95vw;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+}
+
+.circle-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid black;
+}
+
+.podio #primeiroColocado,
+.podio #segundoColocado,
+.podio #terceiroColocado {
+  color: black;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  font-size: larger;
+  -webkit-text-stroke-width: 10%;
+  -webkit-text-stroke-color: black;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.podio #primeiroColocado { background-color: gold; }
+.podio #segundoColocado { background-color: silver; }
+.podio #terceiroColocado { background-color: #cd7f32; }
+
+.table-ranking {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 2rem;
+  border: 2px solid #3a3f60;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Colunas */
+.table-ranking th:nth-child(1),
+.table-ranking td:nth-child(1) {
+  width: 10%;
+  text-align: center;
+}
+
+.table-ranking th:nth-child(2),
+.table-ranking td:nth-child(2) {
+  width: 15%;
+  text-align: center;
+}
+
+.table-ranking th:nth-child(3),
+.table-ranking td:nth-child(3) {
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.table-ranking th:nth-child(4),
+.table-ranking td:nth-child(4) {
+  width: 25%;
+  text-align: center;
+}
+
+.table-ranking th {
+  background-color: #7c05f2;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: white;
+}
+
+.table-ranking td {
+  padding: 8px;
+  border: 1px solid #3a3f60;
+  background-color: #0a1a4d;
+  color: white;
+}
+
+.table-ranking tr:nth-child(even) td {
+  background-color: #152163;
+}
+
+.table-ranking tr:nth-child(1) td {
+  color: gold;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+.table-ranking tr:nth-child(2) td {
+  color: silver;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+.table-ranking tr:nth-child(3) td {
+  color: #cd7f32;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
 }
 
 .podio {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 120px;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .degrau {
-    width: 300px;
-    margin: 0 10px;
-    text-align: center;
+  width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.first {
-    height: 550px;
-    background-color: gold;
-}
-
-.second {
-    height: 400px;
-    background-color: silver;
-}
-
-.third {
-    height: 300px;
-    background-color: #cd7f32;
-}
+.first { height: 450px; background-color: gold; }
+.second { height: 350px; background-color: silver; }
+.third { height: 280px; background-color: #cd7f32; }
 
 .degrau img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .pontuacao {
-    text-shadow: 2px 2px black;
-    font-weight: bold;
-    font-size: larger;
+  text-shadow: 2px 2px black;
+  font-weight: bold;
+  font-size: larger;
+  color: white;
 }
 
-#ranking-lateral {
-    margin-left: 25px;
+/* Imagem pequena para tabela */
+.table-ranking .circle-img {
+  width: 50px;
+  height: 50px;
+}
+
+/* -------- Media Queries -------- */
+
+@media (min-width: 992px) {
+  .ranking {
+    max-width: 90vw;
+    padding: 4rem 3rem;
+  }
+
+  .podio {
+    gap: 3rem;
+  }
+
+  .degrau {
+    width: 260px;
+  }
+
+  .first { height: 500px; }
+  .second { height: 400px; }
+  .third { height: 320px; }
+
+  .table-ranking {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ranking {
+    max-width: 85vw;
+  }
+
+  .podio {
+    gap: 4rem;
+  }
+
+  .degrau {
+    width: 300px;
+  }
+
+  .degrau img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .table-ranking {
+    width: 80%;
+  }
+
+  .table-ranking th,
+  .table-ranking td {
+    padding: 12px;
+  }
+
+  .table-ranking .circle-img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ranking {
+    margin-top: 6rem;
+    padding: 2rem 1rem;
+  }
+
+  .podio {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .degrau {
+    width: 200px;
+  }
+
+  .first { height: 350px; }
+  .second { height: 280px; }
+  .third { height: 220px; }
+
+  .degrau img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .table-ranking th,
+  .table-ranking td {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
+  .table-ranking .circle-img {
+    width: 40px;
+    height: 40px;
+  }
 }

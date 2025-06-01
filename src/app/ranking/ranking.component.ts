@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './ranking.component.html',
-  styleUrl: './ranking.component.css'
+  styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent {
-
+  
 }
