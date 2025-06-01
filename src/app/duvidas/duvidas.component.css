@@ -2,103 +2,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .help-section {
-    margin-top: calc(6vh + 60px);
-    background-color: var(--cor-de-fundo);
-    font-family: 'Roboto', sans-serif;
-    padding: 4vw 6vw;
-    text-align: center;
-    box-sizing: border-box;
+  margin-top: 100px;
+  background-color: var(--cor-de-fundo);
+  font-family: 'Roboto', sans-serif;
+  padding: 4vw 6vw;
+  text-align: center;
+  box-sizing: border-box;
+  scroll-margin-top: 100px;
 }
 
 .help-section h1 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: 2vh;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2vh;
 }
 
 .search-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-bottom: 4vh;
-    width: 100%;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-box input {
-    padding: 0.6em;
-    font-size: 1em;
-    width: 70vw;
-    max-width: 40em;
-    border: none;
-    border-radius: 0.5em 0 0 0.5em;
-    outline: none;
-    color: black;
-    box-sizing: border-box;
+  padding: 0.6em;
+  font-size: 1em;
+  width: 70vw;
+  max-width: 40em;
+  border: none;
+  border-radius: 0.5em 0 0 0.5em;
+  outline: none;
+  color: black;
+  box-sizing: border-box;
 }
 
 .search-box button {
-    padding: 0.6em 1em;
-    font-size: 1em;
-    background-color: #6c5ce7;
-    border: none;
-    border-radius: 0 0.5em 0.5em 0;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6em 1em;
+  background-color: #6c5ce7;
+  border: none;
+  border-radius: 0 0.5em 0.5em 0;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+  margin-left: -1px;
+  outline: none;
+}
+
+.search-box button svg {
+  fill: white;
+  transition: fill 0.3s ease;
 }
 
 .search-box button:hover {
-    background-color: #81ecec;
-    color: black;
+  background-color: #81ecec;
+}
+
+.search-box button:hover svg {
+  fill: black;
+}
+
+.search-box button:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 .faq {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2vh;
-    margin-top: 2vh;
-    margin-bottom: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
 }
 
 .faq-item {
-    background-color: var(--cor-secundaria);
-    padding: 1.5em;
-    width: 90vw;
-    max-width: 50em;
-    border-radius: 0.8em;
-    box-sizing: border-box;
-    text-align: left;
+  background-color: var(--cor-secundaria);
+  padding: 1.5em;
+  width: 90vw;
+  max-width: 50em;
+  border-radius: 0.8em;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .faq-item h3 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    margin-bottom: 0.8em;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 0.8em;
 }
 
 .faq-item p {
-    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
-/* Melhorias específicas para monitores grandes */
 @media (min-width: 1200px) {
-    .help-section {
-        padding: 3vw 15vw;
-    }
+  .help-section {
+    padding: 3vw 15vw;
+  }
 
-    .search-box {
-        gap: 1.5em;
-    }
+  .faq {
+    gap: 2.5vh;
+  }
 
-    .faq {
-        gap: 2.5vh;
-    }
-
-    .faq-item {
-        padding: 2em;
-    }
+  .faq-item {
+    padding: 2em;
+  }
 }
