@@ -1,20 +1,30 @@
 .card {
-  height: 40%;
-  width: 40%;
+  width: 30%;
+  min-width: 280px;
+  max-width: 400px;
   background-color: #021859;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card:hover {
   transform: scale(1.03);
 }
 
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 .games_principal {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 5rem;
@@ -28,20 +38,33 @@
 }
 
 .games {
-  min-height: 130vh;
+  min-height: 100vh;
   background-color: #010626;
-  padding-bottom: 4rem;
+  padding: 6rem 1rem 4rem; /* padding-top maior para exibir o título */
 }
 
-/* RESPONSIVIDADE PARA NOTEBOOKS E MACBOOKS */
+.games_titulo {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Telas entre 1600px e 1920px */
+@media (max-width: 1920px) {
+  .card {
+    width: 32%;
+  }
+}
+
+/* Telas entre 1366px e 1600px */
 @media (max-width: 1600px) {
   .card {
-    width: 45%;
-    height: auto;
+    width: 40%;
   }
 
   .games_principal {
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 4rem;
   }
 
@@ -54,16 +77,21 @@
   }
 }
 
+/* Telas entre 1025px e 1366px */
 @media (max-width: 1366px) {
-  .card {
-    width: 90%;
-    height: auto;
+  .games {
+    padding-top: 6rem;
   }
 
   .games_principal {
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
     margin-top: 3rem;
+  }
+
+  .card {
+    width: 44%;
   }
 
   .card-title {
@@ -74,3 +102,55 @@
     font-size: 0.95rem;
   }
 }
+
+/* Telas até 1024px */
+@media (max-width: 1024px) {
+  .games {
+    padding-top: 6rem;
+  }
+
+  .games_principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Telas grandes (até 1920px) */
+@media (max-width: 1920px) {
+  .games {
+    padding-top: 6rem;
+  }
+
+  .games_principal {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem; 
+    margin-top: 4rem;
+  }
+
+  .card {
+    width: 28%;  
+    max-width: 380px;
+  }
+}
+
