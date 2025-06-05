@@ -1,182 +1,46 @@
-<link href="https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro" rel="stylesheet">
+<div class="challenge-container">
+  <header class="challenge-header">
+    <h1>Cosmic Flexbox</h1>
+    <div class="level-navigation">
+      <button [disabled]="currentLevel === 1" (click)="previousLevel()">Anterior</button>
+      <span>Nível {{ currentLevel }} de {{ totalLevels }}</span>
+      <button [disabled]="currentLevel === totalLevels || !isCorrect" (click)="nextLevel()">Próximo</button>
+    </div>
+  </header>
 
-<section id="sidebar">
-    <div class="header">
-        <div>
-            <h1 class="title">Flexbox Froggy</h1>
+  <div class="challenge-content">
+    <div class="instructions-panel">
+      <h2>Instruções</h2>
+      <p>{{ getCurrentLevel().instructions }}</p>
+      <div class="hint-container">
+        <button (click)="toggleHint()">{{ showHint ? 'Esconder Dica' : 'Mostrar Dica' }}</button>
+        <div *ngIf="showHint" class="hint">
+          <p>Dica: Tente usar <code>{{ getCurrentLevel().solution }}</code></p>
         </div>
-        <div id="level-counter">
-            <span class="arrow left">
-                <span class="triangle"></span>
-            </span>
-            <span id="level-indicator">
-                <span id="labelLevel" class="translate">Level</span>
-                <span class="current">1</span>
-                <span id="labelOf" class="translate">of</span>
-                <span class="total">1</span>
-                <span class="caret">▾</span>
-            </span>
-            <span class="arrow right">
-                <span class="triangle"></span>
-            </span>
-            <div id="levelsWrapper" class="tooltip">
-                <div id="levels"></div>
-                <div id="labelReset" class="translate">Reset</div>
-            </div>
-        </div>
-    </div>
-    <p id="instructions"></p>
-    <div id="editor">
-        <div id="css">
-            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
-            <pre id="before"></pre>
-            <textarea id="code" autofocus autocapitalize="none" spellcheck="false"></textarea>
-            <pre id="after"></pre>
-        </div>
-        <button id="next" class="translate">Next</button>
-    </div>
-    <div id="share">
-        <div class="games">
-            <a target="_blank" data-title="Grid Garden" href="https://codepip.com/games/grid-garden/">
-                <img src="images/games/grid-garden.png" alt="Grid Garden">
-            </a>
-            <a target="_blank" data-title="Anchoreum" href="https://codepip.com/games/anchoreum/">
-                <img src="images/games/anchoreum.png" alt="Anchoreum">
-            </a>
-            <a target="_blank" data-title="Disarray" href="https://codepip.com/games/disarray/">
-                <img src="images/games/disarray.png" alt="Disarray">
-            </a>
-            <a target="_blank" data-title="CSS Scoops" href="https://codepip.com/games/css-scoops/">
-                <img src="images/games/css-scoops.png" alt="CSS Scoops">
-            </a>
-        </div>
-        <p class="social">
-            <span id="tweet">
-                <a href="https://twitter.com/share" class="twitter-share-button" {count}
-                    data-url="https://flexboxfroggy.com" data-via="playcodepip">Tweet</a>
-                <a href="https://twitter.com/playcodepip" class="twitter-follow-button"
-                    data-show-count="false">Follow</a>
-            </span>
-            <span class="fb-like" data-href="https://flexboxfroggy.com" data-layout="button_count" data-action="like"
-                data-show-faces="true" data-share="true"></span>
-        </p>
+      </div>
     </div>
 
-    <div class="bsa-custom"></div>
+    <div class="game-panel">
+      <div class="space-container" [attr.data-layout]="getCurrentLevel().layout">
+        <div class="space" [style]="userCSS">
+          <div class="planet planet-1" *ngFor="let i of [].constructor(getCurrentLevel().planets)">
+            <div class="orbit"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="credits">
-        <span id="labelFooter" class="translate">Flexbox Froggy is created by</span>
-        <a href="https://codepip.com">Codepip</a> •
-        <a href="https://youtube.com/codepip">YouTube</a> •
-        <a href="https://twitter.com/playcodepip">Twitter</a> •
-        <a href="https://github.com/thomaspark/flexboxfroggy/">GitHub</a> •
-        <span id="settings">
-            <span id="labelSettings" class="toggle translate">Settings</span>
-            <span class="tooltip">
-                <section>
-                    <h4 id="labelLanguage" class="translate">Language</h4>
-                    <select id="language">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="nl">Nederlands</option>
-                        <option value="pt-br">Português</option>
-                        <option value="ca">Català</option>
-                        <option value="gl">Galego</option>
-                        <option value="it">Italiano</option>
-                        <option value="sv">Svenska</option>
-                        <option value="fi">Suomi</option>
-                        <option value="da">Dansk</option>
-                        <option value="pl">Polski</option>
-                        <option value="cs">Česky</option>
-                        <option value="sk">Slovenčina</option>
-                        <option value="hu">Magyar</option>
-                        <option value="ro">Română</option>
-                        <option value="bg">Български</option>
-                        <option value="et">Eesti</option>
-                        <option value="lv">Latviešu</option>
-                        <option value="lt">Lietuvių</option>
-                        <option value="uk">Українська</option>
-                        <option value="ru">Русский</option>
-                        <option value="sr">Српски</option>
-                        <option value="bs">Bosanski</option>
-                        <option value="hr">Hrvatski</option>
-                        <option value="mk">Македонски</option>
-                        <option value="mn">Монгол хэл</option>
-                        <option value="el">Ελληνικά</option>
-                        <option value="tr">Türkçe</option>
-                        <option value="az">Azərbaycanca</option>
-                        <option value="he">עברית</option>
-                        <option value="ar">العربية</option>
-                        <option value="fa">فارسی</option>
-                        <option value="hi">हिंदी</option>
-                        <option value="bn">বাংলা</option>
-                        <option value="te">తెలుగు</option>
-                        <option value="ta">தமிழ்</option>
-                        <option value="gj">ગુજરાતી</option>
-                        <option value="si">සිංහල</option>
-                        <option value="ml">മലയാളം</option>
-                        <option value="np">नेपाली</option>
-                        <option value="zh-cn">简体中文</option>
-                        <option value="zh-tw">繁體中文</option>
-                        <option value="ja">日本語</option>
-                        <option value="ko">한국어</option>
-                        <option value="vi">Tiếng Việt</option>
-                        <option value="th">ภาษาไทย</option>
-                        <option value="id">Bahasa Indonesia</option>
-                        <option value="af">Afrikaans</option>
-                        <option value="eo">Esperanto</option>
-                    </select>
-                </section>
-                <section>
-                    <h4 id="labelDifficulty" class="translate">Difficulty</h4>
-                    <form id="difficulty">
-                        <div>
-                            <input type="radio" name="difficulty" id="difficultyEasy" value="easy" checked>
-                            <label id="labelDifficultyEasy" for="difficultyEasy" class="translate">Beginner</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="difficulty" id="difficultyMedium" value="medium">
-                            <label id="labelDifficultyMedium" for="difficultyMedium" class="translate">Intermediate - No
-                                Directions</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="difficulty" id="difficultyHard" value="hard">
-                            <label id="labelDifficultyHard" for="difficultyHard" class="translate">Expert - No
-                                Directions &amp; Random Levels</label>
-                        </div>
-                    </form>
-                </section>
-                <section>
-                    <h4 id="labelColorblind" class="translate">Colorblind Mode</h4>
-                    <form id="colorblind">
-                        <div>
-                            <div>
-                                <input type="radio" name="colorblind" id="colorblindOff" value="false" checked>
-                                <label id="labelColorblindOff" for="colorblindOff" class="translate">Off</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="colorblind" id="colorblindOn" value="true">
-                                <label id="labelColorblindOn" for="colorblindOn" class="translate">On</label>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-            </span>
-        </span>
+    <div class="code-panel">
+      <h2>Seu Código CSS</h2>
+      <textarea [(ngModel)]="userCSS" rows="10"></textarea>
+      <div class="code-actions">
+        <button (click)="checkSolution()">Verificar</button>
+        <button (click)="resetLevel()">Reiniciar</button>
+      </div>
+      <div *ngIf="isCorrect" class="success-message">
+        <p>🎉 Parabéns! Você completou este nível!</p>
+        <button *ngIf="currentLevel < totalLevels" (click)="nextLevel()">Próximo Nível</button>
+      </div>
     </div>
-    <div class="credits">
-        <span id="gridGarden" class="translate">Want to learn more CSS? Play</span> <a
-            href="https://codepip.com/games/grid-garden/">Grid Garden</a> or <a
-            href="https://codepip.com/games/anchoreum/">Anchoreum</a>.
-    </div>
-</section>
-<section id="view">
-    <div id="board">
-        <div id="pond">
-        </div>
-        <div id="background">
-        </div>
-    </div>
-</section>
+  </div>
+</div>

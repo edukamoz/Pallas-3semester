@@ -114,10 +114,117 @@ ODS 9
 [![Imagem Figma 7](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20140619.png?raw=true)](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20140619.png)
 
 ## 📅 GERENCIAMENTO DE CRONOGRAMA 
-[![Cronograma](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20170001.png?raw=true)](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20170001.png)
+![Cronograma](public/cronograma.png)
 
 ## 📚 BACKLOG
-[![Backlog](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20170157.png?raw=true)](https://github.com/konsanii/figma-imagem-Pallas/blob/main/Captura%20de%20tela%202025-06-01%20170157.png)
+![Backlog](public/backlogs.png)
+
+
+# User Stories - Projeto Pallas
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ator Envolvido</th>
+      <th>User Story</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PALLAS-30</td>
+      <td>Usuário final</td>
+      <td>Como <strong>usuário do sistema</strong>, eu quero <strong>que as páginas sejam responsivas</strong> para que <strong>eu possa acessar o conteúdo em diferentes dispositivos</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-28</td>
+      <td>Usuário com deficiência</td>
+      <td>Como <strong>usuário com deficiência</strong>, eu quero <strong>que o site seja acessível</strong> para que <strong>eu possa navegar sem barreiras</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-36</td>
+      <td>Usuário final</td>
+      <td>Como <strong>usuário do sistema</strong>, eu quero <strong>acessar páginas bem estruturadas</strong> para que <strong>eu possa visualizar e interagir com as funcionalidades</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-37</td>
+      <td>Usuário final</td>
+      <td>Como <strong>usuário</strong>, eu quero <strong>que as páginas sejam otimizadas e aprimoradas</strong> para que <strong>eu tenha uma melhor experiência de navegação</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-21</td>
+      <td>Desenvolvedor</td>
+      <td>Como <strong>desenvolvedor</strong>, eu quero <strong>uma documentação clara das APIs</strong> para que <strong>eu possa integrá-las e utilizá-las corretamente</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-20</td>
+      <td>Equipe de desenvolvimento</td>
+      <td>Como <strong>membro da equipe</strong>, eu quero <strong>uma documentação geral do projeto</strong> para que <strong>todos entendam o funcionamento e arquitetura do sistema</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-16</td>
+      <td>Desenvolvedor</td>
+      <td>Como <strong>desenvolvedor</strong>, eu quero <strong>rotas de API com GET, PUT, POST, DELETE para usuários</strong> para que <strong>o sistema possa gerenciar usuários</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-17</td>
+      <td>Desenvolvedor</td>
+      <td>Como <strong>desenvolvedor</strong>, eu quero <strong>rotas de API com GET, PUT, POST, DELETE para jogos</strong> para que <strong>o sistema possa gerenciar jogos</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-18</td>
+      <td>Desenvolvedor</td>
+      <td>Como <strong>desenvolvedor</strong>, eu quero <strong>rotas de API com GET, PUT, POST, DELETE para ranking</strong> para que <strong>o sistema possa exibir e atualizar rankings</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-19</td>
+      <td>Desenvolvedor</td>
+      <td>Como <strong>desenvolvedor</strong>, eu quero <strong>rotas de API com GET, PUT, POST, DELETE para desafios</strong> para que <strong>o sistema possa gerenciar desafios</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-30</td>
+      <td>Usuário</td>
+      <td>Como <strong>usuário</strong>, eu quero <strong>realizar login com segurança</strong> para que <strong>eu possa acessar funcionalidades restritas do sistema</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-35</td>
+      <td>Novo usuário</td>
+      <td>Como <strong>novo usuário</strong>, eu quero <strong>me cadastrar no sistema</strong> para que <strong>eu possa utilizar a plataforma</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-33</td>
+      <td>Usuário final</td>
+      <td>Como <strong>usuário final</strong>, eu quero <strong>um sistema totalmente integrado</strong> para que <strong>eu possa usar todas as funcionalidades sem erros</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-13</td>
+      <td>Usuário com mobilidade reduzida</td>
+      <td>Como <strong>usuário com mobilidade reduzida</strong>, eu quero <strong>navegar pelo site com teclado</strong> para que <strong>eu possa acessar tudo sem usar o mouse</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-14</td>
+      <td>Usuário com deficiência visual</td>
+      <td>Como <strong>usuário com deficiência visual</strong>, eu quero <strong>que os elementos sejam lidos por voz</strong> para que <strong>eu compreenda o conteúdo do site</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-15</td>
+      <td>Usuário surdo</td>
+      <td>Como <strong>usuário surdo</strong>, eu quero <strong>acesso ao conteúdo em Libras</strong> para que <strong>eu compreenda as informações do site</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-22</td>
+      <td>Usuário com necessidades especiais</td>
+      <td>Como <strong>usuário com necessidades especiais</strong>, eu quero <strong>que todas as páginas sejam acessíveis</strong> para que <strong>eu possa utilizá-las plenamente</strong>.</td>
+    </tr>
+    <tr>
+      <td>PALLAS-24 / PALLAS-22</td>
+      <td>Equipe de desenvolvimento</td>
+      <td>Como <strong>membro da equipe</strong>, eu quero <strong>criar um protótipo navegável</strong> para que <strong>eu possa validar funcionalidades antes da implementação</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 ## 🖥️ PROTÓTIPO E DOCUMENTAÇÃO
 
@@ -155,8 +262,7 @@ ODS 9
   <tbody>
     <tr>
       <td>Eduardo Kamo</td>
-      <td>Diretor Executivo (CEO)
-Guiando a empresa para  um futuro mais facil e incrivel!</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/edukamoz" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -165,9 +271,7 @@ Guiando a empresa para  um futuro mais facil e incrivel!</td>
     </tr>
     <tr>
       <td>Iago Yuri Rossan</td>
-      <td>Diretor de TI (CIO)
-Atuando no desenvolvimento de novas telas de aplicação
-</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/IagoYuriRossan" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -176,8 +280,7 @@ Atuando no desenvolvimento de novas telas de aplicação
     </tr>
     <tr>
       <td>Lucas Vinicios Consani</td>
-      <td>Analista de TI
-Atuando dando suporte para o sistema</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/konsanii" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -186,16 +289,7 @@ Atuando dando suporte para o sistema</td>
     </tr>
     <tr>
       <td>Matheus Nery</td>
-      <td>Diretor de Marketing Digital Atuando para engajar a midia visual da empresa</td>
-      <td>
-        <a href="" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Nelson de Oliveira</td>
-      <td>Diretor de Operações (COO) Atuando na solução de conflitos e processos</td>
+      <td>Product Owner</td>
       <td>
         <a href="" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
