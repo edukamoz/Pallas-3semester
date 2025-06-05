@@ -262,8 +262,7 @@ ODS 9
   <tbody>
     <tr>
       <td>Eduardo Kamo</td>
-      <td>Diretor Executivo (CEO)
-Guiando a empresa para  um futuro mais facil e incrivel!</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/edukamoz" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -272,9 +271,7 @@ Guiando a empresa para  um futuro mais facil e incrivel!</td>
     </tr>
     <tr>
       <td>Iago Yuri Rossan</td>
-      <td>Diretor de TI (CIO)
-Atuando no desenvolvimento de novas telas de aplicação
-</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/IagoYuriRossan" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -283,8 +280,7 @@ Atuando no desenvolvimento de novas telas de aplicação
     </tr>
     <tr>
       <td>Lucas Vinicios Consani</td>
-      <td>Analista de TI
-Atuando dando suporte para o sistema</td>
+      <td>Desenvolvedor</td>
       <td>
         <a href="https://github.com/konsanii" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
@@ -293,16 +289,7 @@ Atuando dando suporte para o sistema</td>
     </tr>
     <tr>
       <td>Matheus Nery</td>
-      <td>Diretor de Marketing Digital Atuando para engajar a midia visual da empresa</td>
-      <td>
-        <a href="" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Nelson de Oliveira</td>
-      <td>Diretor de Operações (COO) Atuando na solução de conflitos e processos</td>
+      <td>Product Owner</td>
       <td>
         <a href="" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
