@@ -20,4 +20,10 @@ describe('DesafiosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  irParaSite() {
+  window.open(https://sqlpd.com/);
+  
+}
+
 });
