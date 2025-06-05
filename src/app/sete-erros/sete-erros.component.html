@@ -10,21 +10,31 @@
   </div>
 
   <div *ngIf="!isLoading && !errorMessage && codeBlocks.length > 0">
-    <div *ngFor="let block of codeBlocks; let i = index" class="code-block-container">
-      <h6>Bloco {{ i + 1 }}</h6>
-      <pre
-        class="code-block"
-        contenteditable="true"
-        [innerText]="block.join('\n')"
-        (input)="onCodeChange(i, $event)"
-        (blur)="onCodeChange(i, $event)"
-      ></pre>
+    <div class="code-editor-container">
+      <h6>Código para Correção</h6>
+      
+      <!-- Editor de código principal -->
+      <textarea
+        #codeEditor
+        class="code-editor"
+        [(ngModel)]="currentCodeText"
+        (ngModelChange)="onCodeTextChange($event)"
+        placeholder="Cole ou digite seu código aqui..."
+        spellcheck="false"
+        wrap="off"
+      ></textarea>
+      
+      <!-- Contador de linhas -->
+      <div class="editor-stats">
+        <span>Linhas: {{ currentCodeText.split('\n').length }}</span>
+        <span>Caracteres: {{ currentCodeText.length }}</span>
+      </div>
     </div>
 
     <div class="button-container">
       <button 
         (click)="checkAnswers()" 
-        [disabled]="isLoading || codeBlocks.length === 0"
+        [disabled]="isLoading || codeBlocks.length === 0 || !currentCodeText.trim()"
         class="check-button"
       >
         Verificar Respostas
@@ -45,7 +55,8 @@
       <div class="feedback-block">
         <h6>Correções:</h6>
         <ul>
-          <li *ngFor="let linha of feedback.feedback" class="feedback-line">
+          <li *ngFor="let linha of feedback.feedback; let i = index" class="feedback-line">
+            <span class="line-number">{{ i + 1 }}:</span>
             <span *ngIf="linha.status === 'acertou'" class="correct">
               ✓ {{ linha.line }}
             </span>

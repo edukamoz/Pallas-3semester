@@ -1,5 +1,6 @@
 import { type ComponentFixture, TestBed } from "@angular/core/testing"
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing"
+import { FormsModule } from "@angular/forms"
 import { SeteErrosComponent } from "./sete-erros.component"
 
 describe("SeteErrosComponent", () => {
@@ -9,7 +10,7 @@ describe("SeteErrosComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SeteErrosComponent, HttpClientTestingModule],
+      imports: [SeteErrosComponent, HttpClientTestingModule, FormsModule],
     }).compileComponents()
 
     fixture = TestBed.createComponent(SeteErrosComponent)
@@ -35,6 +36,7 @@ describe("SeteErrosComponent", () => {
     req.flush(mockData)
 
     expect(component.codeBlocks).toEqual([mockData])
+    expect(component.currentCodeText).toBe('const nome = "Maria"\nconsole.log(nome);')
     expect(component.isLoading).toBeFalse()
   })
 
@@ -48,17 +50,12 @@ describe("SeteErrosComponent", () => {
     expect(component.isLoading).toBeFalse()
   })
 
-  it("should update code block on change", () => {
-    component.codeBlocks = [["linha1", "linha2"]]
+  it("should update code text on change", () => {
+    const newText = "nova linha1\nnova linha2"
 
-    const mockEvent = {
-      target: {
-        innerText: "nova linha1\nnova linha2",
-      },
-    } as any
+    component.onCodeTextChange(newText)
 
-    component.onCodeChange(0, mockEvent)
-
+    expect(component.currentCodeText).toBe(newText)
     expect(component.codeBlocks[0]).toEqual(["nova linha1", "nova linha2"])
   })
 
@@ -88,6 +85,7 @@ describe("SeteErrosComponent", () => {
   it("should reset game", () => {
     component.feedback = { score: 5, feedback: [] }
     component.errorMessage = "Algum erro"
+    component.currentCodeText = "código antigo"
 
     const mockData = ["nova linha"]
 
@@ -98,6 +96,15 @@ describe("SeteErrosComponent", () => {
 
     expect(component.feedback).toBeNull()
     expect(component.errorMessage).toBeNull()
+    expect(component.currentCodeText).toBe("nova linha")
     expect(component.codeBlocks).toEqual([mockData])
+  })
+
+  it("should format code", () => {
+    component.currentCodeText = "  linha com espaços  \n   outra linha   "
+
+    component.formatCode()
+
+    expect(component.currentCodeText).toBe("linha com espaços\noutra linha")
   })
 })
